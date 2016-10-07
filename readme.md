@@ -1,0 +1,1 @@
+# web plugin for webpack
