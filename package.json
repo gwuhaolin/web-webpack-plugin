@@ -1,6 +1,6 @@
 {
   "name": "web-webpack-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "web plugin for webpack",
   "repository": {
     "type": "git",
@@ -11,5 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "halwu",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "parse5": "^3.0.1"
+  }
 }
