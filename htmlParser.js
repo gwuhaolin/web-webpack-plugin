@@ -20,7 +20,7 @@ function getChunkFiles(compilation, chunkName) {
     if (typeof chunk === 'object') {
         return chunk.files;
     }
-    console.error('WebPlugin', `can't find resource ${chunkName} in chunks`);
+    return [];
 }
 
 
@@ -114,7 +114,9 @@ class Resource {
         if (query.ie) {
             newNodes = surroundWithIE(newNodes);
         }
-        util.replaceNodeWithNew(node, newNodes);
+        if (newNodes.length > 0) {
+            util.replaceNodeWithNew(node, newNodes);
+        }
     }
 }
 

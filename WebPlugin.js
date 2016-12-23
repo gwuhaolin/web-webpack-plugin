@@ -18,6 +18,17 @@ function isProduction(compiler) {
     return false;
 }
 
+function isHotUpdateCompilation(compilation) {
+    let files = Object.keys(compilation.assets);
+    for (let i = 0; i < files.length; i++) {
+        let name = files[i];
+        if (/.+\.hot-update\.js$/.test(name)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function WebPlugin(options) {
     this.options = options;
     this.htmlParser = new HtmlParser(options.template, options.require)
@@ -28,6 +39,11 @@ WebPlugin.prototype.apply = function (compiler) {
     global._isProduction = isProduction(compiler);
 
     compiler.plugin('emit', function (compilation, callback) {
+        if (isHotUpdateCompilation(compilation)) {
+            console.log('isHotUpdateCompilation');
+            callback();
+            return;
+        }
         htmlParser.scripts.forEach(scriptResource => {
             scriptResource.out(compilation);
         });
