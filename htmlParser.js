@@ -99,7 +99,7 @@ class Resource {
                             }))
                         } else {
                             newNodes.push(util.mockScriptNode({
-                                src: publicPath + fileName
+                                src: path.join(publicPath || '', fileName)
                             }))
                         }
                     }
