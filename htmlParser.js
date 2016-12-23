@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const querystring = require('querystring');
 const parse5 = require('parse5');
+const util = require('./util');
 
 function parseQuery(queryString) {
     let query = querystring.parse(queryString);
@@ -22,32 +23,6 @@ function getChunkFiles(compilation, chunkName) {
     console.error('WebPlugin', `can't find resource ${chunkName} in chunks`);
 }
 
-function replaceNodeWithNew(node, nodes = []) {
-    const childNodes = node.parentNode.childNodes;
-    let index = childNodes.findIndex(childNode => childNode === node);
-    childNodes.splice(index, 1, ...nodes);
-}
-
-function mockScriptNode(options = { src, content }) {
-    let { src, content } = options;
-    if (typeof src === 'string') {
-        return {
-            nodeName: 'script',
-            tagName: 'script',
-            attrs: [{ name: 'src', value: src }]
-        };
-    } else if (typeof content === 'string') {
-        return {
-            nodeName: 'script',
-            tagName: 'script',
-            attrs: [],
-            childNodes: [{
-                nodeName: "#text",
-                value: content
-            }]
-        };
-    }
-}
 
 function surroundWithIE(nodes = []) {
     let eleString = parse5.serialize({
@@ -68,7 +43,7 @@ class Resource {
                 if (attr.name === 'src' && typeof attr.value === 'string') {
                     const src = attr.value;
                     let arr = src.split('?', 2);
-                    this.base = arr[0];
+                    this.chunkName = arr[0];
                     this.query = parseQuery(arr[1]);
                     this.node = node;
                     this.type = 'script';
@@ -86,7 +61,7 @@ class Resource {
             }
             if (rel === 'stylesheet' && typeof href === 'string') {
                 let arr = href.split('?', 2);
-                this.base = arr[0];
+                this.chunkName = arr[0];
                 this.query = parseQuery(arr[1]);
                 this.node = node;
                 this.type = 'style';
@@ -101,29 +76,29 @@ class Resource {
     out(compilation) {
         let publicPath = compilation.compiler.options.output.publicPath;
         let isProduction = global._isProduction;
-        let { base, node, query, type } = this;
+        let { chunkName, node, query, type } = this;
         let { assets } = compilation;
         if (query.dev && isProduction === true) {
-            replaceNodeWithNew(node)
+            util.replaceNodeWithNew(node)
             return;
         }
         if (query.dist && isProduction === false) {
-            replaceNodeWithNew(node)
+            util.replaceNodeWithNew(node)
             return;
         }
         let newNodes = [];
         switch (type) {
             case 'script':
-                let fileNames = getChunkFiles(compilation, base);
+                let fileNames = getChunkFiles(compilation, chunkName);
                 fileNames.forEach(fileName => {
                     if (fileName.endsWith('.js')) {
                         let source = assets[fileName];
                         if (query.inline) {
-                            newNodes.push(mockScriptNode({
+                            newNodes.push(util.mockScriptNode({
                                 content: source.source()
                             }))
                         } else {
-                            newNodes.push(mockScriptNode({
+                            newNodes.push(util.mockScriptNode({
                                 src: publicPath + fileName
                             }))
                         }
@@ -139,13 +114,14 @@ class Resource {
         if (query.ie) {
             newNodes = surroundWithIE(newNodes);
         }
-        replaceNodeWithNew(node, newNodes);
+        util.replaceNodeWithNew(node, newNodes);
     }
 }
 
 class HtmlParser {
 
-    constructor(htmlFilePath) {
+    constructor(htmlFilePath, require) {
+        this.require = require || [];
         this.scripts = [];
         this.styles = [];
         this.comments = [];
@@ -164,14 +140,48 @@ class HtmlParser {
                 });
             }
         });
+        if (this.require.length > 0) {
+
+            for (let i = 0; i < this.comments.length; i++) {
+                let comment = this.comments[i];
+                if (comment.data === 'SCRIPT') {
+                    let leftScripts = require.map(chunkName => {
+                        return util.mockScriptNode({
+                            src: chunkName,
+                            parentNode: comment.node.parentNode
+                        })
+                    });
+                    util.replaceNodeWithNew(comment.node, leftScripts);
+                    this._findScriptStyleTagComment({
+                        childNodes: leftScripts
+                    });
+                    return;
+                }
+            }
+
+            let leftScripts = require.map(chunkName => {
+                return util.mockScriptNode({
+                    src: chunkName,
+                    parentNode: this.bodyNode
+                })
+            });
+            this.bodyNode.childNodes.push(...leftScripts);
+            this._findScriptStyleTagComment({
+                childNodes: leftScripts
+            });
+        }
     }
 
     _findScriptStyleTagComment(node) {
         node.childNodes.forEach(childNode => {
             let resource = new Resource(childNode);
-            let { type } = resource;
+            let { type, chunkName } = resource;
             if (type === 'script') {
                 this.scripts.push(resource);
+                let index = this.require.findIndex(one => one === chunkName);
+                if (index >= 0) {
+                    this.require.splice(index, 1);
+                }
             } else if (type === 'style') {
                 this.styles.push(resource);
             } else if (type === 'comment') {

@@ -1,21 +1,26 @@
 const fs = require('fs');
 const parse5 = require('parse5');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const util = require('./util');
 const HtmlParser = require('./htmlParser');
 
 function isProduction(compiler) {
     let plugins = compiler.options.plugins;
-    let definePlugin = plugins.find(plugin => plugin instanceof DefinePlugin);
-    if (definePlugin instanceof DefinePlugin) {
-        return definePlugin.definitions['process.env.NODE_ENV'] === '"production"';
-    } else {
-        return false;
+    for (var i = 0; i < plugins.length; i++) {
+        var plugin = plugins[i];
+        try {
+            if (plugin.definitions['process.env.NODE_ENV'] === '"production"') {
+                return true;
+            }
+        } catch (_) {
+        }
     }
+    return false;
 }
 
 function WebPlugin(options) {
     this.options = options;
-    this.htmlParser = new HtmlParser(options.template)
+    this.htmlParser = new HtmlParser(options.template, options.require)
 }
 
 WebPlugin.prototype.apply = function (compiler) {

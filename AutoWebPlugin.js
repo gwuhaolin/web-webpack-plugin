@@ -14,11 +14,13 @@ function getDirsInDir(dir) {
     return ret;
 }
 
-function AutoWebPlugin(pageDir, options = {
-    template: 'index.html',
+const DefaultOption = {
     entity: '',
     commonsChunk: 'common'
-}) {
+};
+
+function AutoWebPlugin(pageDir, options) {
+    options = Object.assign({}, DefaultOption, options);
     let { template, entity, commonsChunk } = options;
     this.commonsChunk = commonsChunk;
     let pageNames = getDirsInDir(pageDir);
@@ -26,9 +28,11 @@ function AutoWebPlugin(pageDir, options = {
     pageNames.forEach(pageName => {
         entityMap[pageName] = {}
         if (typeof template === 'string') {
-            entityMap[pageName].template = path.resolve(pageDir, pageName, template);
+            entityMap[pageName].template = template;
         } else if (typeof template === 'function') {
             entityMap[pageName].template = template(pageName)
+        } else {
+            entityMap[pageName].template = path.resolve(pageDir, pageName, 'index.html');
         }
         if (typeof entity === 'string') {
             entityMap[pageName].entityPath = path.resolve(pageDir, pageName, entity)
@@ -43,6 +47,7 @@ function AutoWebPlugin(pageDir, options = {
 AutoWebPlugin.prototype.apply = function (compiler) {
     let { options } = compiler;
     let { entityMap, commonsChunk } = this;
+    let useCommonsChunk = typeof commonsChunk === 'string';
     Object.keys(entityMap).forEach(entityName => {
         let { template, entityPath } = entityMap[entityName];
         if (!options.entry.hasOwnProperty(entityName)) {
@@ -51,9 +56,10 @@ AutoWebPlugin.prototype.apply = function (compiler) {
         new WebPlugin({
             template: template,
             filename: `${entityName}.html`,
+            require: useCommonsChunk ? [commonsChunk, entityName] : [entityName]
         }).apply(compiler);
     });
-    if (typeof commonsChunk === 'string') {
+    if (useCommonsChunk) {
         new CommonsChunkPlugin({
             name: commonsChunk,
             chunks: Object.keys(entityMap)
