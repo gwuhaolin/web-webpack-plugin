@@ -75,14 +75,14 @@ class Resource {
 
     out(compilation) {
         let publicPath = compilation.compiler.options.output.publicPath;
-        let isProduction = global._isProduction;
+        const { _isProduction }= global;
         let { chunkName, node, query, type } = this;
         let { assets } = compilation;
-        if (query.dev && isProduction === true) {
+        if (query.dev && _isProduction === true) {
             util.replaceNodeWithNew(node)
             return;
         }
-        if (query.dist && isProduction === false) {
+        if (query.dist && _isProduction === false) {
             util.replaceNodeWithNew(node)
             return;
         }

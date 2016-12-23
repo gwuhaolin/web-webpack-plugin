@@ -27,7 +27,22 @@ function mockScriptNode(options = { src, content, parentNode }) {
     }
 }
 
+function isProduction(compiler) {
+    let plugins = compiler.options.plugins;
+    for (var i = 0; i < plugins.length; i++) {
+        var plugin = plugins[i];
+        try {
+            if (plugin.definitions['process.env.NODE_ENV'] === '"production"') {
+                return true;
+            }
+        } catch (_) {
+        }
+    }
+    return false;
+}
+
 module.exports = {
     replaceNodeWithNew,
-    mockScriptNode
+    mockScriptNode,
+    isProduction
 }

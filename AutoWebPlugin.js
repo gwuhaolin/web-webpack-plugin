@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const WebPlugin = require('./WebPlugin');
+const util = require('./util');
 
 function getDirsInDir(dir) {
     let files = fs.readdirSync(dir);
@@ -16,7 +17,6 @@ function getDirsInDir(dir) {
 
 const DefaultOption = {
     entity: '',
-    commonsChunk: 'common'
 };
 
 function AutoWebPlugin(pageDir, options) {
@@ -45,13 +45,15 @@ function AutoWebPlugin(pageDir, options) {
 }
 
 AutoWebPlugin.prototype.apply = function (compiler) {
+    const _isProduction = util.isProduction(compiler);
     let { options } = compiler;
+    let devServer = options.devServer || {};
     let { entityMap, commonsChunk } = this;
     let useCommonsChunk = typeof commonsChunk === 'string';
     Object.keys(entityMap).forEach(entityName => {
         let { template, entityPath } = entityMap[entityName];
         if (!options.entry.hasOwnProperty(entityName)) {
-            options.entry[entityName] = entityPath;
+            options.entry[entityName] = _isProduction ? entityPath : [`webpack-dev-server/client?http://localhost:${devServer.port || 8080}/`, 'webpack/hot/dev-server', entityPath];
         }
         new WebPlugin({
             template: template,

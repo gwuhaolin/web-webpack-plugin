@@ -4,20 +4,6 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const util = require('./util');
 const HtmlParser = require('./htmlParser');
 
-function isProduction(compiler) {
-    let plugins = compiler.options.plugins;
-    for (var i = 0; i < plugins.length; i++) {
-        var plugin = plugins[i];
-        try {
-            if (plugin.definitions['process.env.NODE_ENV'] === '"production"') {
-                return true;
-            }
-        } catch (_) {
-        }
-    }
-    return false;
-}
-
 function isHotUpdateCompilation(compilation) {
     let files = Object.keys(compilation.assets);
     for (let i = 0; i < files.length; i++) {
@@ -36,11 +22,10 @@ function WebPlugin(options) {
 
 WebPlugin.prototype.apply = function (compiler) {
     let { htmlParser, options } = this;
-    global._isProduction = isProduction(compiler);
+    global._isProduction = util.isProduction(compiler);
 
     compiler.plugin('emit', function (compilation, callback) {
         if (isHotUpdateCompilation(compilation)) {
-            console.log('isHotUpdateCompilation');
             callback();
             return;
         }
