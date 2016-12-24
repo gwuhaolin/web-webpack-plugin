@@ -1,6 +1,4 @@
-# web plugin for webpack
-
-## 安装
+# 安装
 ```bash
 npm i web-webpack-plugin --save-dev
 ```
@@ -10,7 +8,7 @@ const { WebPlugin, AutoWebPlugin } = WebWebpackPlugin;
 ```
 
 
-## 输出html文件
+# 输出html文件
 ```js
 module.exports = {
     entry: {
@@ -28,7 +26,7 @@ module.exports = {
 };
 ```
 
-将会输出一个`index.html`文件，这个文件将会自动引入 entry `app` 生成的js文件，输出的html如下:
+将会输出一个`index.html`文件，这个文件将会自动引入 entry `A` 和 `B` 生成的js文件，输出的html如下:
 ```html
 <!DOCTYPE html>
 <html>
@@ -49,7 +47,7 @@ module.exports = {
 ```
 
 
-## 使用html模版
+# 使用html模版
 ```js
 module.exports = {
     entry: {
@@ -98,7 +96,7 @@ module.exports = {
 ```    
 
 
-## 配置资源属性
+# 配置资源属性
 针对每一个html依赖的资源，有如下属性可以配置：
 - `_dist` 只有在生产环境下才引入该资源
 - `_dev` 只有在开发环境下才引入该资源
@@ -107,7 +105,7 @@ module.exports = {
 
 配置这些属性的方式有两种：
 
-#### 在html模版里配置
+### 在html模版里配置
 ```js
 module.exports = {
     entry: {
@@ -141,7 +139,7 @@ template.html
 ```
 [输出的html文件](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-template/index.html)
 
-#### 在`webpack.config.js`里配置
+### 在`webpack.config.js`里配置
 ```js
 module.exports = {
     plugins: [
@@ -169,4 +167,4 @@ module.exports = {
 [输出的html文件](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-js/index.html)
 
 
-## 自动探测html入口
+# 自动探测html入口
