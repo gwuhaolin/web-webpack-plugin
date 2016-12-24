@@ -19,15 +19,14 @@ module.exports = {
     },
     plugins: [
         new WebPlugin({
+            // 输出的html文件名称，必填，注意不要重名，重名会覆盖相互文件。
             filename: 'index.html',
+            // 该html文件依赖的entry，必须是一个数组。依赖的资源的注入顺序按照数组的顺序。
             require: ['A', 'B'],
         }),
     ]
 };
 ```
-
-- `filename` 输出的html文件名称，必填，注意不要重名，重名会覆盖相互文件。
-- `require` 该html文件依赖的entry，必须是一个数组。依赖的资源的注入顺序按照数组的顺序。
 
 将会输出一个`index.html`文件，这个文件将会自动引入 entry `app` 生成的js文件，输出的html如下:
 ```html
@@ -60,13 +59,13 @@ module.exports = {
     plugins: [
         new WebPlugin({
             filename: 'index.html',
+            // html模版文件路径（相对于webpack.config.js的完整路径）
             template: './template.html',
             require: ['A', 'B'],
         }),
     ]
 };
 ```
-- `template` html模版文件路径（相对于webpack.config.js的完整路径）
 ```html
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -97,12 +96,6 @@ module.exports = {
 </body>
 </html>
 ```    
-文件目录结构为：
-```
-├── A.js
-├── B.js
-└── index.html
-```
 
 
 ## 配置资源属性
