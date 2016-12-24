@@ -1,0 +1,1 @@
+alert('ie_polyfill');

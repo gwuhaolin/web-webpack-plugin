@@ -8,7 +8,7 @@ const { WebPlugin, AutoWebPlugin } = WebWebpackPlugin;
 ```
 
 
-# 输出html文件
+# 输出html文件 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/out-html)
 ```js
 module.exports = {
     entry: {
@@ -47,7 +47,7 @@ module.exports = {
 ```
 
 
-# 使用html模版
+# 使用html模版 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)
 ```js
 module.exports = {
     entry: {
@@ -96,7 +96,7 @@ module.exports = {
 ```    
 
 
-# 配置资源属性
+# 配置资源属性 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-resource)
 针对每一个html依赖的资源，有如下属性可以配置：
 - `_dist` 只有在生产环境下才引入该资源
 - `_dev` 只有在开发环境下才引入该资源
@@ -167,4 +167,40 @@ module.exports = {
 [输出的html文件](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-js/index.html)
 
 
-# 自动探测html入口
+# 自动探测html入口 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)
+`AutoWebPlugin` 可以找到一个目录下所有的页面入口，自动为所有的页面入口配置一个`WebPlugin`输出对应的html，使用如下：
+```js
+module.exports = {
+    plugins: [
+        new AutoWebPlugin(
+            // 所有页面的入口目录
+            './src/', 
+            {
+            // 所有页面采用的模版文件
+            template: './src/template.html',
+            // 当前页面的javascript入口文件，如果为空就使用当前page目录下的 index.js 作为入口 
+            entity: null,
+            // 提取出所有页面公共的代码，放到common里,如果为空就不提取出所有页面公共的代码。使用 `CommonsChunkPlugin` 完成
+            commonsChunk: 'common',
+        }),
+    ]
+};
+```
+### template 属性
+`template` 当template为字符串是，我看作为html模版文件的路径（相对于webpack.config.js的路径）。
+在复杂的情况下你可以设置template为一个函数，如下使用当前页面目录下的index.html文件作为当前页面的模版文件
+```js
+const path = require('path');
+module.exports = {
+    plugins: [
+        new AutoWebPlugin('./src/', {
+            // 所有页面采用的模版文件
+            template: (pageName) => {
+                return path.resolve('./src',pageName,'index.html');
+            },
+        }),
+    ]
+};
+```
+### entity 属性
+entity 属性 和 template 类似，同样也支持回调函数应对复杂情况。但是如果 entity 为空就使用当前页面目录下的 index.jsx? 作为入口 

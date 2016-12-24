@@ -35,14 +35,14 @@ function isHotUpdateCompilation(compilation) {
 function WebPlugin(options) {
     this.options = options;
     const { require } = options;
-    if (typeof require === 'object' && require != null) {
+    if (Array.isArray(require)) {
+        this.htmlParser = new HtmlParser(options.template, require);
+    } else if (typeof require === 'object' && require != null) {
         let newRequire = [];
         Object.keys(require).forEach(chunkName => {
             newRequire.push(`${chunkName}?${querystring.stringify(require[chunkName])}`);
         });
         this.htmlParser = new HtmlParser(options.template, newRequire);
-    } else if (Array.isArray(require)) {
-        this.htmlParser = new HtmlParser(options.template, require);
     } else {
         this.htmlParser = new HtmlParser(options.template, []);
     }
