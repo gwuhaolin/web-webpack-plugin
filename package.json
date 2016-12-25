@@ -1,6 +1,6 @@
 {
   "name": "web-webpack-plugin",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "web plugin for webpack",
   "repository": {
     "type": "git",
