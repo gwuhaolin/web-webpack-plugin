@@ -20,9 +20,9 @@ function replaceNodeWithNew(node, nodes = []) {
  *      script tag's javascript content
  * options.parentNode {parse5.Node}
  *      script node's parentNode
- * @returns {parse5.Node}
+ * @returns {*}
  */
-function mockScriptNode(options = { src, content, parentNode }) {
+function mockScriptNode(options) {
     let { src, content, parentNode } = options;
     if (typeof src === 'string') {
         return {
@@ -32,16 +32,19 @@ function mockScriptNode(options = { src, content, parentNode }) {
             attrs: [{ name: 'src', value: src }]
         };
     } else if (typeof content === 'string') {
-        return {
+        const scriptNode = {
             nodeName: 'script',
             tagName: 'script',
             parentNode,
-            attrs: [],
-            childNodes: [{
-                nodeName: "#text",
-                value: content
-            }]
+            attrs: []
         };
+        const textNode = {
+            nodeName: "#text",
+            value: content,
+            parentNode: scriptNode
+        }
+        scriptNode.childNodes = [textNode];
+        return scriptNode;
     }
 }
 

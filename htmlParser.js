@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const url = require('url');
 const querystring = require('querystring');
 const parse5 = require('parse5');
 const util = require('./util');
@@ -138,7 +139,7 @@ class Resource {
                         } else {
                             // load this javascript file with src
                             newNodes.push(util.mockScriptNode({
-                                src: path.join(publicPath || '', fileName)
+                                src: url.resolve(publicPath || '', fileName)
                             }))
                         }
                     }
