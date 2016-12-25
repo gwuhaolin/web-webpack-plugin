@@ -186,6 +186,34 @@ module.exports = {
     ]
 };
 ```
+源代码目录：
+```
+── src
+│   ├── home
+│   │   └── index.js
+│   ├── ie_polyfill.js
+│   ├── login
+│   │   └── index.js
+│   ├── polyfill.js
+│   ├── signup
+│   │   └── index.js
+│   └── template.html
+```
+输出代码目录：
+```
+├── dist
+│   ├── common.js
+│   ├── home.html
+│   ├── home.js
+│   ├── ie_polyfill.js
+│   ├── login.html
+│   ├── login.js
+│   ├── polyfill.js
+│   ├── signup.html
+│   └── signup.js
+```
+`AutoWebPlugin`插件找出了`./src/`目录下所有的目录`home login signup`,针对这3个目录分别读取目录里的`index.js`作为入口，生成三个html文件`home.html login.html signup.html`
+
 ### template 属性
 `template` 当template为字符串是，我看作为html模版文件的路径（相对于webpack.config.js的路径）。
 在复杂的情况下你可以设置template为一个函数，如下使用当前页面目录下的index.html文件作为当前页面的模版文件
@@ -203,4 +231,17 @@ module.exports = {
 };
 ```
 ### entity 属性
-entity 属性 和 template 类似，同样也支持回调函数应对复杂情况。但是如果 entity 为空就使用当前页面目录下的 index.jsx? 作为入口 
+entity 属性 和 template 类似，同样也支持回调函数应对复杂情况。但是如果 entity 为空就使用当前页面目录下的 index.jsx? 作为入口
+ 
+ 
+# 区分环境
+这个插件会考虑 *开发环境* 和 *生产环境* 两种情况。有且仅当使用`DefinePlugin`插件定义`NODE_ENV=production`是才认为当前环境是 *生产环境*，其它的都认为是开发环境。
+```js
+new webpack.DefinePlugin({
+    'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+    }
+})
+``` 
+webpack -p 参数会定义 `DefinePlugin NODE_ENV=production`。
+开发环境下会输出对阅读友好对html，在生产模式下会压缩html。
