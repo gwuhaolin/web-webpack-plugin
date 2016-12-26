@@ -99,7 +99,7 @@ output html:
 ```    
 
 
-# config resource attribute[demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-resource)
+# config resource attribute [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-resource)
 every resource required by html,it can config some attribute as below:
 - `_dist` only load in production environment
 - `_dev` only load in dev environment
