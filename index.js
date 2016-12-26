@@ -1,2 +1,2 @@
-exports.WebPlugin = require('./WebPlugin');
-exports.AutoWebPlugin = require('./AutoWebPlugin');
+exports.WebPlugin = require('./lib/WebPlugin');
+exports.AutoWebPlugin = require('./lib/AutoWebPlugin');

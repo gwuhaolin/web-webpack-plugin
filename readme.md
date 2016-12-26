@@ -244,4 +244,3 @@ new webpack.DefinePlugin({
 })
 ``` 
 webpack -p 参数会定义 `DefinePlugin NODE_ENV=production`。
-开发环境下会输出对阅读友好对html，在生产模式下会压缩html。

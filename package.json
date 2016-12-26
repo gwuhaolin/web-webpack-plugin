@@ -1,6 +1,6 @@
 {
   "name": "web-webpack-plugin",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "web plugin for webpack",
   "repository": {
     "type": "git",
@@ -8,11 +8,16 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "demo:auto-plugin": "cd ./demo/auto-plugin/ && webpack && cd ../../",
+    "demo:config-resource": "cd ./demo/config-resource/ && webpack && webpack --config webpack.config-template.js && cd ../../",
+    "demo:out-html": "cd ./demo/out-html/ && webpack && cd ../../",
+    "demo:use-template": "cd ./demo/use-template/ && webpack && cd ../../",
+    "demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && cd ../../"
   },
   "author": "halwu",
   "license": "ISC",
   "dependencies": {
+    "clone": "^2.1.0",
     "parse5": "^3.0.1"
   },
   "peerDependencies": {
