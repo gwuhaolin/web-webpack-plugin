@@ -1,9 +1,10 @@
+const path = require('path');
 const WebWebpackPlugin = require('../../index');
 const { WebPlugin } = WebWebpackPlugin;
 
 module.exports = {
     output: {
-        path: './dist-js',
+        path: path.resolve(__dirname, 'dist-js'),
         filename: '[name].js',
     },
     entry: {
