@@ -232,7 +232,101 @@ module.exports = {
 ```
 ### entity 属性
 entity 属性 和 template 类似，同样也支持回调函数应对复杂情况。但是如果 entity 为空就使用当前页面目录下的 index.jsx? 作为入口
- 
+
+
+# 加载 css [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
+每个 entity 对应的 resource 可能会包含 css 代码。
+如果你想把css代码提取出来单独加载而不是潜入在js里加载你需要先使用
+[extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) 
+分离出css代码，剩下的事情交给我，我会自动像上面处理js一样处理css
+
+```js
+// webpack.config.js
+module.exports = {
+    module: {
+        loaders: [
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({
+                    fallbackLoader: 'style-loader',
+                    loader: 'css-loader'
+                })
+            }
+        ]
+    },
+    entry: {
+        1: './1',
+        2: './2',
+        3: './3',
+        4: './4',
+    },
+    plugins: [
+        new ExtractTextPlugin('[name].css'),
+        new WebPlugin({
+            filename: 'index.html',
+            template: './template.html',
+            requires: ['1', '2', '3', '4']
+        }),
+    ]
+};
+```
+html模版
+```html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="1">
+    <link rel="stylesheet" href="2?_inline">
+    <link rel="stylesheet" href="3?_ie">
+    <script src="1"></script>
+    <!--STYLE-->
+</head>
+<body>
+<script src="2"></script>
+<!--SCRIPT-->
+<footer>footer</footer>
+</body>
+</html>
+```
+输出的html
+```html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="1.css">
+    <style>
+    /*2.css*/
+    body {
+        background-color: rebeccapurple;
+    }</style>
+    <!--[if IE]>
+    <link rel="stylesheet" href="3.css">
+    <![endif]-->
+    <script src="1.js"></script>
+    <link rel="stylesheet" href="4.css">
+</head>
+<body>
+<script src="2.js"></script>
+<script src="3.js"></script>
+<script src="4.js"></script>
+<footer>footer</footer>
+</body>
+</html>
+```
+输出的代码目录：
+```
+├── 1.css
+├── 1.js
+├── 2.css
+├── 2.js
+├── 3.css
+├── 3.js
+├── 4.css
+├── 4.js
+└── index.html
+```
  
 # 区分环境
 这个插件会考虑 *开发环境* 和 *生产环境* 两种情况。有且仅当使用`DefinePlugin`插件定义`NODE_ENV=production`是才认为当前环境是 *生产环境*，其它的都认为是开发环境。
@@ -245,4 +339,5 @@ new webpack.DefinePlugin({
 ``` 
 webpack -p 参数会定义 `DefinePlugin NODE_ENV=production`。
 
-### 支持最新的 node.js LTS 版本
+# 支持的 node.js 版本
+本插件使用了很多es6语法，支持最新的 node.js LTS 版本

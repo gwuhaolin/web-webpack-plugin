@@ -1,6 +1,6 @@
 {
   "name": "web-webpack-plugin",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "web plugin for webpack",
   "repository": {
     "type": "git",
@@ -9,10 +9,11 @@
   "main": "index.js",
   "scripts": {
     "demo:auto-plugin": "cd ./demo/auto-plugin/ && webpack && cd ../../",
-    "demo:config-resource": "cd ./demo/config-resource/ && webpack && webpack --config webpack.config-template.js && cd ../../",
+    "demo:config-resource": "cd ./demo/config-resource/ && webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
     "demo:out-html": "cd ./demo/out-html/ && webpack && cd ../../",
     "demo:use-template": "cd ./demo/use-template/ && webpack && cd ../../",
-    "demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && cd ../../"
+    "demo:extract-css": "cd ./demo/extract-css/ && webpack && cd ../../",
+    "demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:extract-css && cd ../../"
   },
   "author": "halwu",
   "license": "ISC",
@@ -21,6 +22,11 @@
   },
   "peerDependencies": {
     "webpack": "^2.2.0-rc.2",
-    "webpack-dev-server": "^2.2.0-rc.0"
+    "webpack-dev-server": "^2.2.0-rc.0",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4"
+  },
+  "devDependencies": {
+    "css-loader": "^0.26.1",
+    "style-loader": "^0.13.1"
   }
 }

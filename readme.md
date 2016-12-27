@@ -237,6 +237,100 @@ module.exports = {
 ### entity attribute
 The entity property is similar to template, and also supports callback functions for complex situations. But if the entity is empty to use the current page directory index.jsx? As the entrance
  
+
+# load css [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
+The resource for each entity may contain css code.
+If you want to extract the css code to load alone rather than sneaking into the js where you need to load
+[extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) 
+Separated css code, the rest of the things to me, I will automatically deal with the same as the above js css
+
+```js
+// webpack.config.js
+module.exports = {
+    module: {
+        loaders: [
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({
+                    fallbackLoader: 'style-loader',
+                    loader: 'css-loader'
+                })
+            }
+        ]
+    },
+    entry: {
+        1: './1',
+        2: './2',
+        3: './3',
+        4: './4',
+    },
+    plugins: [
+        new ExtractTextPlugin('[name].css'),
+        new WebPlugin({
+            filename: 'index.html',
+            template: './template.html',
+            requires: ['1', '2', '3', '4']
+        }),
+    ]
+};
+```
+html template
+```html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="1">
+    <link rel="stylesheet" href="2?_inline">
+    <link rel="stylesheet" href="3?_ie">
+    <script src="1"></script>
+    <!--STYLE-->
+</head>
+<body>
+<script src="2"></script>
+<!--SCRIPT-->
+<footer>footer</footer>
+</body>
+</html>
+```
+output html
+```html
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="1.css">
+    <style>
+    /*2.css*/
+    body {
+        background-color: rebeccapurple;
+    }</style>
+    <!--[if IE]>
+    <link rel="stylesheet" href="3.css">
+    <![endif]-->
+    <script src="1.js"></script>
+    <link rel="stylesheet" href="4.css">
+</head>
+<body>
+<script src="2.js"></script>
+<script src="3.js"></script>
+<script src="4.js"></script>
+<footer>footer</footer>
+</body>
+</html>
+```
+output directory:
+```
+├── 1.css
+├── 1.js
+├── 2.css
+├── 2.js
+├── 3.css
+├── 3.js
+├── 4.css
+├── 4.js
+└── index.html
+``` 
  
 # Distinguish the environment
 This plug-in takes into account both *development* environment and *production* environment. And only if the `DefinePlugin` plugin defines` NODE_ENV = production` is the current environment is *production* environment, others are considered to be development environment.
@@ -249,4 +343,5 @@ new webpack.DefinePlugin({
 ``` 
 webpack -p will define `DefinePlugin NODE_ENV=production`。
 
-### support latest node.js LTS version
+# Version of the supported node.js
+This plugin uses a lot of es6 syntax, support the latest node.js LTS version
