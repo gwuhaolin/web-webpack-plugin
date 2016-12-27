@@ -70,7 +70,7 @@
 /* 0 */
 /***/ function(module, exports) {
 
-alert('hello web-webpack-plugin from a');
+console.lo('hello web-webpack-plugin from a');
 
 /***/ }
 /******/ ]);
