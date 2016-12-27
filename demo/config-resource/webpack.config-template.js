@@ -3,7 +3,7 @@ const { WebPlugin } = WebWebpackPlugin;
 
 module.exports = {
     output: {
-        path: 'dist-template',
+        path: './dist-template',
         filename: '[name].js',
     },
     entry: {

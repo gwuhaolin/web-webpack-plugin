@@ -79,7 +79,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-alert('module 2');
+console.log('module 2');
 
 /***/ }
 

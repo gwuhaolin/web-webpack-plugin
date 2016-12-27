@@ -1,2 +1,2 @@
 require('./4.css');
-alert('module 4');
+console.log('module 4');

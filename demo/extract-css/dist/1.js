@@ -80,7 +80,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(0);
-alert('module 1');
+console.log('module 1');
 
 /***/ }
 /******/ ]);
