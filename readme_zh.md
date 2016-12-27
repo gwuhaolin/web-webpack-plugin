@@ -10,7 +10,7 @@ const { WebPlugin, AutoWebPlugin } = WebWebpackPlugin;
 
 # 输出html文件 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/out-html)
 
-*webpack配置*
+**webpack配置**
 ```js
 module.exports = {
     entry: {
@@ -30,7 +30,7 @@ module.exports = {
 
 将会输出一个`index.html`文件，这个文件将会自动引入 entry `A` 和 `B` 生成的js文件，
 
-*输出的html:*
+**输出的html:**
 ```html
 <!DOCTYPE html>
 <html>
@@ -44,7 +44,7 @@ module.exports = {
 </html>
 ```
 
-*输出的目录结构*
+**输出的目录结构**
 ```
 ├── A.js
 ├── B.js
@@ -54,7 +54,7 @@ module.exports = {
 
 # 使用html模版 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)
 
-*webpack配置*
+**webpack配置**
 ```js
 module.exports = {
     entry: {
@@ -72,7 +72,7 @@ module.exports = {
 };
 ```
 
-*html模版*
+**html模版**
 ```html
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -89,7 +89,7 @@ module.exports = {
 - 在html模版里通过`<script src="B"></script>` 引入需要的entry，`src="B"` 中的B为chunk配置的名称
 - 注释`<!--SCRIPT-->` 代表除开通过`<script src></script>`引入的资源外，在 requires 里配置的剩下的依赖的资源应该被注入的地方，如果模版没有出现`<!--SCRIPT-->`就放在`body`标签的最后
     
-*输出的html:*
+**输出的html:**
 ```html
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -116,7 +116,7 @@ module.exports = {
 
 ### 在html模版里配置
 
-*webpack配置*
+**webpack配置**
 ```js
 module.exports = {
     entry: {
@@ -134,7 +134,7 @@ module.exports = {
 };
 ```
 
-*html模版*
+**html模版**
 ```html
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -153,7 +153,7 @@ module.exports = {
 
 ### 在`webpack.config.js`里配置
 
-*webpack配置*
+**webpack配置**
 ```js
 module.exports = {
     plugins: [
@@ -184,7 +184,7 @@ module.exports = {
 # 自动探测html入口 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)
 `AutoWebPlugin` 可以找到一个目录下所有的页面入口，自动为所有的页面入口配置一个`WebPlugin`输出对应的html，使用如下：
 
-*webpack配置*
+**webpack配置**
 ```js
 module.exports = {
     plugins: [
@@ -203,7 +203,7 @@ module.exports = {
 };
 ```
 
-*源代码目录结构*
+**源代码目录结构**
 ```
 ── src
 │   ├── home
@@ -217,7 +217,7 @@ module.exports = {
 │   └── template.html
 ```
 
-*输出的目录结构*
+**输出的目录结构**
 ```
 ├── dist
 │   ├── common.js
@@ -236,7 +236,7 @@ module.exports = {
 `template` 当template为字符串是，我看作为html模版文件的路径（相对于webpack.config.js的路径）。
 在复杂的情况下你可以设置template为一个函数，如下使用当前页面目录下的index.html文件作为当前页面的模版文件
 
-*webpack配置*
+**webpack配置**
 ```js
 const path = require('path');
 module.exports = {
@@ -260,7 +260,7 @@ entity 属性 和 template 类似，同样也支持回调函数应对复杂情�
 [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) 
 分离出css代码，剩下的事情交给我，我会自动像上面处理js一样处理css
 
-*webpack配置*
+**webpack配置**
 ```js
 // webpack.config.js
 module.exports = {
@@ -292,7 +292,7 @@ module.exports = {
 };
 ```
 
-*html模版*
+**html模版**
 ```html
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -312,7 +312,7 @@ module.exports = {
 </html>
 ```
 
-*输出的html:*
+**输出的html:**
 ```html
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -320,7 +320,7 @@ module.exports = {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="1.css">
     <style>
-    /*2.css*/
+    /**2.css**/
     body {
         background-color: rebeccapurple;
     }</style>
@@ -339,7 +339,7 @@ module.exports = {
 </html>
 ```
 
-*输出的目录结构*
+**输出的目录结构**
 ```
 ├── 1.css
 ├── 1.js
@@ -353,7 +353,7 @@ module.exports = {
 ```
  
 # 区分环境
-这个插件会考虑 *开发环境* 和 *生产环境* 两种情况。有且仅当使用`DefinePlugin`插件定义`NODE_ENV=production`是才认为当前环境是 *生产环境*，其它的都认为是开发环境。
+这个插件会考虑 **开发环境** 和 **生产环境** 两种情况。有且仅当使用`DefinePlugin`插件定义`NODE_ENV=production`是才认为当前环境是 **生产环境**，其它的都认为是开发环境。
 ```js
 new webpack.DefinePlugin({
     'process.env': {
