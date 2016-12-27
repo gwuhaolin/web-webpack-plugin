@@ -15,7 +15,7 @@ module.exports = {
     plugins: [
         new WebPlugin({
             filename: 'index.html',
-            require: {
+            requires: {
                 'ie-polyfill': {
                     _ie: true
                 },

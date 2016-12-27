@@ -1,6 +1,6 @@
 {
   "name": "web-webpack-plugin",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "web plugin for webpack",
   "repository": {
     "type": "git",
@@ -17,7 +17,6 @@
   "author": "halwu",
   "license": "ISC",
   "dependencies": {
-    "clone": "^2.1.0",
     "parse5": "^3.0.1"
   },
   "peerDependencies": {

@@ -20,7 +20,7 @@ module.exports = {
             // 输出的html文件名称，必填，注意不要重名，重名会覆盖相互文件。
             filename: 'index.html',
             // 该html文件依赖的entry，必须是一个数组。依赖的资源的注入顺序按照数组的顺序。
-            require: ['A', 'B'],
+            requires: ['A', 'B'],
         }),
     ]
 };
@@ -59,7 +59,7 @@ module.exports = {
             filename: 'index.html',
             // html模版文件路径（相对于webpack.config.js的完整路径）
             template: './template.html',
-            require: ['A', 'B'],
+            requires: ['A', 'B'],
         }),
     ]
 };
@@ -78,7 +78,7 @@ module.exports = {
 </html>
 ```
 - 在html模版里通过`<script src="B"></script>` 引入需要的entry，`src="B"` 中的B为chunk配置的名称
-- 注释`<!--SCRIPT-->` 代表除开通过`<script src></script>`引入的资源外，在 require 里配置的剩下的依赖的资源应该被注入的地方，如果模版没有出现`<!--SCRIPT-->`就放在`body`标签的最后
+- 注释`<!--SCRIPT-->` 代表除开通过`<script src></script>`引入的资源外，在 requires 里配置的剩下的依赖的资源应该被注入的地方，如果模版没有出现`<!--SCRIPT-->`就放在`body`标签的最后
     
 输出的html为：
 ```html
@@ -145,7 +145,7 @@ module.exports = {
     plugins: [
         new WebPlugin({
             filename: 'index.html',
-            require: {
+            requires: {
                 'ie-polyfill': {
                     _ie: true
                 },
@@ -244,3 +244,5 @@ new webpack.DefinePlugin({
 })
 ``` 
 webpack -p 参数会定义 `DefinePlugin NODE_ENV=production`。
+
+### 支持最新的 node.js LTS 版本

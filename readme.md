@@ -22,8 +22,8 @@ module.exports = {
             // file name for output file, required.
             // pay attention not to duplication of name,as is will cover other file
             filename: 'index.html',
-            // this html's require entry,must be an array.dependent resource will inject into html use the order entry in array.
-            require: ['A', 'B'],
+            // this html's requires entry,must be an array.dependent resource will inject into html use the order entry in array.
+            requires: ['A', 'B'],
         }),
     ]
 };
@@ -62,7 +62,7 @@ module.exports = {
             filename: 'index.html',
             // html template file path（full path relative to webpack.config.js）
             template: './template.html',
-            require: ['A', 'B'],
+            requires: ['A', 'B'],
         }),
     ]
 };
@@ -81,7 +81,7 @@ module.exports = {
 </html>
 ```
 - use `<script src="B"></script>` in html template to load required entry, the `B` in `src="B"` means entry name config in `webpack.config.js`
-- comment `<!--SCRIPT-->` means a inject position ,except for resource load by `<script src></script>` left required resource config in `WebPlugin's require option`. if there has no `<!--SCRIPT-->` in html template left required script will be inject ad end of `body` tag.
+- comment `<!--SCRIPT-->` means a inject position ,except for resource load by `<script src></script>` left required resource config in `WebPlugin's requires option`. if there has no `<!--SCRIPT-->` in html template left required script will be inject ad end of `body` tag.
     
 output html:
 ```html
@@ -148,7 +148,7 @@ module.exports = {
     plugins: [
         new WebPlugin({
             filename: 'index.html',
-            require: {
+            requires: {
                 'ie-polyfill': {
                     _ie: true
                 },
@@ -248,3 +248,5 @@ new webpack.DefinePlugin({
 })
 ``` 
 webpack -p will define `DefinePlugin NODE_ENV=production`。
+
+### support latest node.js LTS version

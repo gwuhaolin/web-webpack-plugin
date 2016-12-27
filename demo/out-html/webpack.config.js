@@ -13,7 +13,7 @@ module.exports = {
     plugins: [
         new WebPlugin({
             filename: 'index.html',
-            require: ['A', 'B'],
+            requires: ['A', 'B'],
         }),
     ]
 };

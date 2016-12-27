@@ -14,7 +14,7 @@ module.exports = {
         new WebPlugin({
             filename: 'index.html',
             template: './template.html',
-            require: ['A', 'B'],
+            requires: ['A', 'B'],
         }),
     ]
 };
