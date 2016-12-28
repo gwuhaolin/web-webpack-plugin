@@ -254,6 +254,9 @@ module.exports = {
 entity 属性 和 template 类似，同样也支持回调函数应对复杂情况。但是如果 entity 为空就使用当前页面目录下的 index.jsx? 作为入口
 
 
+# 配置 publicPath [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/public-path)
+
+
 # 加载 css [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
 每个 entity 对应的 resource 可能会包含 css 代码。
 如果你想把css代码提取出来单独加载而不是潜入在js里加载你需要先使用

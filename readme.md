@@ -256,6 +256,9 @@ module.exports = {
 ### entity attribute
 The entity property is similar to template, and also supports callback functions for complex situations. But if the entity is empty to use the current page directory index.jsx? As the entrance
  
+ 
+# config publicPath [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/public-path)
+ 
 
 # load css [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
 The resource for each entity may contain css code.
