@@ -356,15 +356,9 @@ module.exports = {
 ```
  
 # 区分环境
-这个插件会考虑 **开发环境** 和 **生产环境** 两种情况。有且仅当使用`DefinePlugin`插件定义`NODE_ENV=production`是才认为当前环境是 **生产环境**，其它的都认为是开发环境。
-```js
-new webpack.DefinePlugin({
-    'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-    }
-})
-``` 
-webpack -p 参数会定义 `DefinePlugin NODE_ENV=production`。
+这个插件会考虑 **开发环境** 和 **生产环境** 两种情况。有且仅当`process.env.NODE_ENV = production`是才认为当前环境是 **生产环境**，其它的都认为是开发环境。
+`webpack -p` 参数会通过 DefinePlugin 定义 `NODE_ENV=production`。
+- 在开发环境下会注入 `webpack-dev-server/client` 和 `webpack/hot/dev-server`
 
 # 支持的 node.js 版本
 本插件使用了很多es6语法，支持最新的 node.js LTS 版本

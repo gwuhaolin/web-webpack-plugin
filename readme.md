@@ -359,15 +359,9 @@ module.exports = {
 ``` 
  
 # Distinguish the environment
-This plug-in takes into account both **development** environment and **production** environment. And only if the `DefinePlugin` plugin defines` NODE_ENV = production` is the current environment is **production** environment, others are considered to be development environment.
-```js
-new webpack.DefinePlugin({
-    'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-    }
-})
-``` 
-webpack -p will define `DefinePlugin NODE_ENV=production`。
+This plug-in takes into account both **development** environment and **production** environment. And only if `process.env.NODE_ENV = production` current environment is **production** environment, others are considered to be development environment.
+`webpack -p` will use DefinePlugin define `NODE_ENV=production`。
+- in development environment, `webpack-dev-server/client` and `webpack/hot/dev-server` will be load
 
 # Version of the supported node.js
 This plugin uses a lot of es6 syntax, support the latest node.js LTS version

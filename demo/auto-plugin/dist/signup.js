@@ -1,20 +1,19 @@
 webpackJsonp([0],{
 
-/***/ 38:
+/***/ 3:
 /***/ function(module, exports) {
 
 alert('page signup');
 
 /***/ },
 
-/***/ 86:
+/***/ 8:
 /***/ function(module, exports, __webpack_require__) {
 
-__webpack_require__(10);
-__webpack_require__(11);
-module.exports = __webpack_require__(38);
+__webpack_require__(0);
+module.exports = __webpack_require__(3);
 
 
 /***/ }
 
-},[86]);
+},[8]);

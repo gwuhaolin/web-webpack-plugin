@@ -1,6 +1,6 @@
 {
   "name": "web-webpack-plugin",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "web plugin for webpack",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "demo:auto-plugin": "cd ./demo/auto-plugin/ && webpack && cd ../../",
+    "demo:auto-plugin": "cd ./demo/auto-plugin/ && webpack && webpack -p --output-path dist-js-prod && cd ../../",
     "demo:config-resource": "cd ./demo/config-resource/ && webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
     "demo:out-html": "cd ./demo/out-html/ && webpack && cd ../../",
     "demo:use-template": "cd ./demo/use-template/ && webpack && cd ../../",
