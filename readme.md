@@ -1,7 +1,5 @@
 # [中文文档](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/readme_zh.md)
 
-Web applications need to load the resources need to configure the entry in the webpack, the final output of the corresponding block of code, but to make the web application to run up through the html load these resources on the browser to run. Webpack only do the work of the resource package is also the lack of these functions to load into the html run, the plug-in to make up for this feature.
-
 # install
 ```bash
 npm i web-webpack-plugin --save-dev
