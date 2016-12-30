@@ -2,6 +2,12 @@
   "name": "web-webpack-plugin",
   "version": "1.0.12",
   "description": "web plugin for webpack",
+  "keywords": [
+    "webpack",
+    "plugin",
+    "html",
+    "web"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:gwuhaolin/web-webpack-plugin.git"
