@@ -1,10 +1,9 @@
 const path = require('path');
-const WebWebpackPlugin = require('../../index');
-const { WebPlugin } = WebWebpackPlugin;
+const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
+const { WebPlugin } = require('../../index');
 
 module.exports = {
     output: {
-        publicPath: '',
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
     },
@@ -20,6 +19,7 @@ module.exports = {
         main: './index',
     },
     plugins: [
+        new NamedModulesPlugin(),
         new WebPlugin({
             filename: 'index.html',
             template: './template.html',

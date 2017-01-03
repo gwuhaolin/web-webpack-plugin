@@ -1,4 +1,4 @@
 let app = window.document.getElementById('app');
-app.innerHTML = 'hello world 2122';
+app.innerHTML = 'hello world';
 require('./index.css');
 module.hot.accept();
