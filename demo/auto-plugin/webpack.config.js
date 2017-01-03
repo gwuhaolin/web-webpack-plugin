@@ -1,6 +1,5 @@
 const path = require('path');
-const WebWebpackPlugin = require('../../index');
-const { AutoWebPlugin } = WebWebpackPlugin;
+const { AutoWebPlugin } = require('../../index');
 
 module.exports = {
     output: {
