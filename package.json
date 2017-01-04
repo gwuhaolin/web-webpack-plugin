@@ -1,6 +1,6 @@
 {
   "name": "web-webpack-plugin",
-  "version": "1.1.12",
+  "version": "1.2.0",
   "description": "web plugin for webpack",
   "keywords": [
     "webpack",
@@ -20,8 +20,9 @@
     "demo:use-template": "cd ./demo/use-template/ && webpack && cd ../../",
     "demo:extract-css": "cd ./demo/extract-css/ && webpack && cd ../../",
     "demo:public-path": "cd ./demo/public-path/ && webpack && cd ../../",
+    "demo:pre-post-entrys": "cd ./demo/pre-post-entrys/ && webpack && cd ../../",
     "demo:hmr": "cd ./demo/hmr/ && webpack-dev-server -d --hot",
-    "demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:extract-css && npm run demo:public-path && cd ../../"
+    "demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && cd ../../"
   },
   "author": "halwu",
   "license": "ISC",

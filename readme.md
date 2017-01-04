@@ -202,6 +202,10 @@ module.exports = {
             // extract common chunk for all pages and then put it into a file named common,if it is null then not do extract action
             // achieve by CommonsChunkPlugin
             commonsChunk: 'common',
+            // pre append to all page's entry
+            preEntrys:['./path/to/file1.js'],
+            // post append to all page's entry
+            postEntrys:['./path/to/file2.js'],
         }),
     ]
 };

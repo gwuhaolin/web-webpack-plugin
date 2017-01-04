@@ -202,6 +202,10 @@ module.exports = {
             entity: null,
             // 提取出所有页面公共的代码，放到common里,如果为空就不提取出所有页面公共的代码。使用 `CommonsChunkPlugin` 完成
             commonsChunk: 'common',
+            // 在所有入口页面的entry前插入
+            preEntrys:['./path/to/file1.js'],
+            // 在所有入口页面的entry后插入
+            postEntrys:['./path/to/file2.js'],
         }),
     ]
 };
