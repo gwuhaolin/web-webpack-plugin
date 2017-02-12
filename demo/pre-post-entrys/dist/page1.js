@@ -68,30 +68,30 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 console.log('google-analytics');
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
-
-console.log('page1');
-
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 console.log('polyfill');
 
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
 
-__webpack_require__(2);
+console.log('page1');
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
 __webpack_require__(1);
+__webpack_require__(2);
 module.exports = __webpack_require__(0);
 
 
-/***/ }
+/***/ })
 /******/ ]);

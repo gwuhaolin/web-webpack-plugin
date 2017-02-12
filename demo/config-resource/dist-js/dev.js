@@ -68,9 +68,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 alert('this script will only load in dev mode');
 
-/***/ }
+/***/ })
 /******/ ]);

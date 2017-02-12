@@ -69,10 +69,10 @@
 /******/ ({
 
 /***/ 4:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 alert('polyfill');
 
-/***/ }
+/***/ })
 
 /******/ });

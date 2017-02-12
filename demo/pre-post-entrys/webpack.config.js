@@ -6,7 +6,10 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
     },
-    entry: {},
+    entry: {
+        'polyfill': './polyfill',
+        'google-analytics': './google-analytics'
+    },
     plugins: [
         new AutoWebPlugin('./pages', {
             preEntrys: ['./polyfill'],

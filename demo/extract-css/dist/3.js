@@ -69,18 +69,18 @@
 /******/ ({
 
 /***/ 2:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
-/***/ },
+/***/ }),
 
 /***/ 6:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
 console.log('module 3');
 
-/***/ }
+/***/ })
 
 /******/ });

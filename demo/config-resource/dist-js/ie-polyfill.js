@@ -69,10 +69,10 @@
 /******/ ({
 
 /***/ 2:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 alert('only IE will load this script');
 
-/***/ }
+/***/ })
 
 /******/ });

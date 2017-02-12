@@ -69,10 +69,10 @@
 /******/ ({
 
 /***/ 3:
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 alert('this script will be inject into html inline');
 
-/***/ }
+/***/ })
 
 /******/ });

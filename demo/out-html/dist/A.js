@@ -68,9 +68,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 alert('hello web-webpack-plugin from a');
 
-/***/ }
+/***/ })
 /******/ ]);

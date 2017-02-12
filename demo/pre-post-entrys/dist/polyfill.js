@@ -71,7 +71,7 @@
 /* 1 */
 /***/ (function(module, exports) {
 
-alert('hello web-webpack-plugin from b');
+console.log('polyfill');
 
 /***/ })
 /******/ ]);

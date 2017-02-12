@@ -69,9 +69,9 @@
 /******/ ([
 /* 0 */,
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 
 
-/***/ }
+/***/ })
 /******/ ]);
