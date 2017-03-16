@@ -1,6 +1,10 @@
-# [中文文档](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/readme_zh.md)
+[![Npm Package](https://img.shields.io/npm/v/web-webpack-plugin.svg?style=flat-square)](https://www.npmjs.com/package/web-webpack-plugin)
+[![Npm Downloads](http://img.shields.io/npm/dm/web-webpack-plugin.svg?style=flat-square)](https://www.npmjs.com/package/web-webpack-plugin)
+[![Dependency Status](https://david-dm.org/gwuhaolin/web-webpack-plugin.svg?style=flat-square)](https://npmjs.org/package/web-webpack-plugin)
 
-# install
+### [中文文档  Chinese](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/readme_zh.md)
+
+# Install
 ```bash
 npm i web-webpack-plugin --save-dev
 ```
@@ -10,8 +14,10 @@ const { WebPlugin, AutoWebPlugin } = WebWebpackPlugin;
 ```
 
 
-# output html file [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/out-html)
+# Feature
 
+
+## output html file [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/out-html)
 **webpack config**
 ```js
 module.exports = {
@@ -55,8 +61,8 @@ will output an file named `index.html`,this file will auto load js file generate
 ```
 
 
-# use html template [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)
 
+## use html template [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)
 **webpack config**
 ```js
 module.exports = {
@@ -108,7 +114,8 @@ module.exports = {
 ```    
 
 
-# config resource attribute [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-resource)
+
+## config resource attribute [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-resource)
 every resource required by html,it can config some attribute as below:
 - `_dist` only load in production environment
 - `_dev` only load in dev environment
@@ -184,7 +191,9 @@ module.exports = {
 [output html file](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-js/index.html)
 
 
-# auto detect html entry [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)
+
+
+## auto detect html entry [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)
 `AutoWebPlugin` can find all page entry in an directory,then auto config an `WebPlugin` for every page to output an html file,you can use it as below:
 
 **webpack config**
@@ -210,6 +219,7 @@ module.exports = {
     ]
 };
 ```
+
 **src directory**
 ```
 ── src
@@ -261,10 +271,12 @@ module.exports = {
 The entity property is similar to template, and also supports callback functions for complex situations. But if the entity is empty to use the current page directory index.jsx? As the entrance
  
  
-# config publicPath [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/public-path)
+ 
+## config publicPath [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/public-path)
  
 
-# load css [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
+
+## load css [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
 The resource for each entity may contain css code.
 If you want to extract the css code to load alone rather than sneaking into the js where you need to load
 [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) 
@@ -362,10 +374,14 @@ module.exports = {
 └── index.html
 ``` 
  
+
+ 
 # Distinguish the environment
 This plug-in takes into account both **development** environment and **production** environment. And only if `process.env.NODE_ENV = production` current environment is **production** environment, others are considered to be development environment.
 `webpack -p` will use DefinePlugin define `NODE_ENV=production`。
 - in development environment, `webpack-dev-server/client` and `webpack/hot/dev-server` will be load
+
+
 
 # Version of the supported node.js
 This plugin uses a lot of es6 syntax, support the latest node.js LTS version

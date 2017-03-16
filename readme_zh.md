@@ -9,8 +9,10 @@ const WebWebpackPlugin = require('web-webpack-plugin');
 const { WebPlugin, AutoWebPlugin } = WebWebpackPlugin;
 ```
 
+# 功能列表
 
-# 输出html文件 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/out-html)
+
+## 输出html文件 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/out-html)
 
 **webpack配置**
 ```js
@@ -54,7 +56,7 @@ module.exports = {
 ```
 
 
-# 使用html模版 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)
+## 使用html模版 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)
 
 **webpack配置**
 ```js
@@ -109,7 +111,8 @@ module.exports = {
 ```    
 
 
-# 配置资源属性 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-resource)
+
+## 配置资源属性 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-resource)
 针对每一个html依赖的资源，有如下属性可以配置：
 - `_dist` 只有在生产环境下才引入该资源
 - `_dev` 只有在开发环境下才引入该资源
@@ -185,7 +188,8 @@ module.exports = {
 [输出的html文件](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-js/index.html)
 
 
-# 自动探测html入口 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)
+
+## 自动探测html入口 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)
 `AutoWebPlugin` 可以找到一个目录下所有的页面入口，自动为所有的页面入口配置一个`WebPlugin`输出对应的html，使用如下：
 
 **webpack配置**
@@ -262,10 +266,11 @@ module.exports = {
 entity 属性 和 template 类似，同样也支持回调函数应对复杂情况。但是如果 entity 为空就使用当前页面目录下的 index.jsx? 作为入口
 
 
-# 配置 publicPath [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/public-path)
+
+## 配置 publicPath [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/public-path)
 
 
-# 加载 css [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
+## 加载 css [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
 每个 entity 对应的 resource 可能会包含 css 代码。
 如果你想把css代码提取出来单独加载而不是潜入在js里加载你需要先使用
 [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) 
@@ -363,10 +368,12 @@ module.exports = {
 └── index.html
 ```
  
+ 
 # 区分环境
 这个插件会考虑 **开发环境** 和 **生产环境** 两种情况。有且仅当`process.env.NODE_ENV = production`是才认为当前环境是 **生产环境**，其它的都认为是开发环境。
 `webpack -p` 参数会通过 DefinePlugin 定义 `NODE_ENV=production`。
 - 在开发环境下会注入 `webpack-dev-server/client` 和 `webpack/hot/dev-server`
+
 
 # 支持的 node.js 版本
 本插件使用了很多es6语法，支持最新的 node.js LTS 版本
