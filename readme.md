@@ -9,8 +9,7 @@
 npm i web-webpack-plugin --save-dev
 ```
 ```js
-const WebWebpackPlugin = require('web-webpack-plugin');
-const { WebPlugin, AutoWebPlugin } = WebWebpackPlugin;
+const { WebPlugin, AutoWebPlugin } = require('web-webpack-plugin');
 ```
 
 
