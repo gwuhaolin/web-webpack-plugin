@@ -5,8 +5,7 @@ web应用需要加载的资源都需要在 webpack 的 entry里配置，最后�
 npm i web-webpack-plugin --save-dev
 ```
 ```js
-const WebWebpackPlugin = require('web-webpack-plugin');
-const { WebPlugin, AutoWebPlugin } = WebWebpackPlugin;
+const { WebPlugin, AutoWebPlugin } = require('web-webpack-plugin');
 ```
 
 # 功能列表
