@@ -263,7 +263,7 @@ module.exports = {
 };
 ```
 ### entity 属性
-entity 属性 和 template 类似，同样也支持回调函数应对复杂情况。但是如果 entity 为空就使用当前页面目录下的 index.jsx? 作为入口
+entity 属性 和 template 类似，同样也支持回调函数应对复杂情况。但是如果 entity 为空就使用当前页面目录下的 `index.jsx?` 作为入口
 
 
 
@@ -372,7 +372,6 @@ module.exports = {
 # 区分环境
 这个插件会考虑 **开发环境** 和 **生产环境** 两种情况。有且仅当`process.env.NODE_ENV = production`是才认为当前环境是 **生产环境**，其它的都认为是开发环境。
 `webpack -p` 参数会通过 DefinePlugin 定义 `NODE_ENV=production`。
-- 在开发环境下会注入 `webpack-dev-server/client` 和 `webpack/hot/dev-server`
 
 
 # 支持的 node.js 版本
