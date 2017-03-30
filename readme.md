@@ -247,7 +247,7 @@ module.exports = {
 │   ├── signup.html
 │   └── signup.js
 ```
-`AutoWebPlugin` find all page `home login signup` directory in `./src/`,for this three page `home login signup` will use `index.js` as main file and output three html file home.html login.html signup.html`
+`AutoWebPlugin` find all page `home login signup` directory in `./src/`,for this three page `home login signup` will use `index.js` as main file and output three html file `home.html login.html signup.html`
 
 ### template attribute
 `template` if template is a string , i will regard it as file path for html template（full path relative to webpack.config.js）
@@ -268,7 +268,7 @@ module.exports = {
 };
 ```
 ### entity attribute
-The entity property is similar to template, and also supports callback functions for complex situations. But if the entity is empty to use the current page directory index.jsx? As the entrance
+The entity property is similar to template, and also supports callback functions for complex situations. But if the entity is empty to use the current page directory `index.jsx?` As the entrance
  
  
  
@@ -377,10 +377,8 @@ module.exports = {
 
  
 # Distinguish the environment
-This plug-in takes into account both **development** environment and **production** environment. And only if `process.env.NODE_ENV = production` current environment is **production** environment, others are considered to be development environment.
+This plugin takes into account both **development** environment and **production** environment. And only if `process.env.NODE_ENV = production` current environment is **production** environment, others are considered to be development environment.
 `webpack -p` will use DefinePlugin define `NODE_ENV=production`。
-- in development environment, `webpack-dev-server/client` and `webpack/hot/dev-server` will be load
-
 
 
 # Version of the supported node.js
