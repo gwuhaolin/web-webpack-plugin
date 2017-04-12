@@ -244,6 +244,9 @@ module.exports = {
 ```
 `AutoWebPlugin`插件找出了`./src/`目录下所有的目录`home login signup`,针对这3个目录分别读取目录里的`index.js`作为入口，生成三个html文件`home.html login.html signup.html`
 
+### ignorePages attribute
+`ignorePages` 被忽略的页面名称列表，被忽略的页面将不会被AutoWebPlugin处理产生对于的html文件，类型是元素为字符串的数组。
+
 ### template 属性
 `template` 当template为字符串是，我看作为html模版文件的路径（相对于webpack.config.js的路径）。
 在复杂的情况下你可以设置template为一个函数，如下使用当前页面目录下的index.html文件作为当前页面的模版文件

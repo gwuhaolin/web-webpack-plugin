@@ -249,6 +249,9 @@ module.exports = {
 ```
 `AutoWebPlugin` find all page `home login signup` directory in `./src/`,for this three page `home login signup` will use `index.js` as main file and output three html file home.html login.html signup.html`
 
+### ignorePages attribute
+`ignorePages` page name list will not ignore by AutoWebPlugin(Not output html file for this page name),type is array of string.
+
 ### template attribute
 `template` if template is a string , i will regard it as file path for html template（full path relative to webpack.config.js）
 In the complex case,You can set the template to a function, as follows using the current page directory index.html file as the current page template file

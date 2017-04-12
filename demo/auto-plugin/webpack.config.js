@@ -12,6 +12,7 @@ module.exports = {
     },
     plugins: [
         new AutoWebPlugin('./src/', {
+            ignorePages: ['ignore'],
             template: './src/template.html',
             commonsChunk: 'common',
             entity: ''
