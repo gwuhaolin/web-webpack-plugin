@@ -34,8 +34,8 @@
     "webpack-dev-server": "^2.4.1"
   },
   "devDependencies": {
-    "css-loader": "^0.27.2",
-    "style-loader": "^0.13.2",
+    "css-loader": "^0.28.0",
+    "style-loader": "^0.16.1",
     "extract-text-webpack-plugin": "^2.1.0"
   }
 }
