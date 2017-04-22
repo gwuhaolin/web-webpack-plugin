@@ -14,7 +14,10 @@ module.exports = {
         new AutoWebPlugin('./src/', {
             ignorePages: ['ignore'],
             template: './src/template.html',
-            commonsChunk: 'common',
+            commonsChunk: {
+                name: 'common',// name prop is require
+                minChunks: 2,
+            },
             entity: ''
         }),
     ]

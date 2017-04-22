@@ -207,9 +207,12 @@ module.exports = {
             template: './src/template.html',
             // javascript main file for current page,if it is null will use index.js in current page directory as main file
             entity: null,
-            // extract common chunk for all pages and then put it into a file named common,if it is null then not do extract action
-            // achieve by CommonsChunkPlugin
-            commonsChunk: 'common',
+            // CommonsChunkPlugin options for all pages entry find by AutoWebPlugin.
+            // if this is null will not do commonsChunk action
+            commonsChunk: {
+                name: 'common',// name prop is require,output filename
+                minChunks: 2,// come from CommonsChunkPlugin
+            },
             // pre append to all page's entry
             preEntrys:['./path/to/file1.js'],
             // post append to all page's entry

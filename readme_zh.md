@@ -203,8 +203,12 @@ module.exports = {
             template: './src/template.html',
             // 当前页面的javascript入口文件，如果为空就使用当前page目录下的 index.js 作为入口 
             entity: null,
-            // 提取出所有页面公共的代码，放到common里,如果为空就不提取出所有页面公共的代码。使用 `CommonsChunkPlugin` 完成
-            commonsChunk: 'common',
+            // 提取出所有页面公共的代码,如果为空就不做提取操作。
+            // 透传给 `CommonsChunkPlugin` 插件的属性
+            commonsChunk: {
+                 name: 'common',// 必填属性,输出的文件名称
+                 minChunks: 2,// 来自 CommonsChunkPlugin 插件
+            },
             // 在所有入口页面的entry前插入
             preEntrys:['./path/to/file1.js'],
             // 在所有入口页面的entry后插入
