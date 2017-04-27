@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const { AutoWebPlugin } = require('../../index');
 
 module.exports = {
@@ -18,7 +19,11 @@ module.exports = {
                 name: 'common',// name prop is require
                 minChunks: 2,
             },
-            entity: ''
+            entity: '',
+            onPagesResolved: (pagesMap) => {
+                console.log('get all pages resolved by AutoWebPlugin');
+                fs.writeFileSync('pagesMap.json', JSON.stringify(pagesMap));
+            }
         }),
     ]
 };

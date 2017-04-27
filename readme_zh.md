@@ -228,6 +228,9 @@ module.exports = {
             preEntrys:['./path/to/file1.js'],
             // 在所有入口页面的entry后插入
             postEntrys:['./path/to/file2.js'],
+            onPagesResolved: (pagesInfo) => {
+                // 在这里获取所有被AutoWebPlugin所生产的页面
+            }
         }),
     ]
 };
