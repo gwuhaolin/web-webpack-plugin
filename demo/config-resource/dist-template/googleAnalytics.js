@@ -71,7 +71,7 @@
 /* 1 */
 /***/ (function(module, exports) {
 
-
+console.log('GA');
 
 /***/ })
 /******/ ]);

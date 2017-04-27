@@ -86,7 +86,12 @@ module.exports = {
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
+    <!--load a chunk file config and output in webpack-->
     <script src="B"></script>
+    <!--load a local reset style file direct without local var webpack-->
+    <link rel="stylesheet" href="./reset.min.css?_inline">
+    <!--load a local google analyze file direct without local var webpack-->
+    <script src="./google-analyze.js"></script>
 </head>
 <body>
 <!--SCRIPT-->
@@ -103,11 +108,19 @@ module.exports = {
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
+    <!--load a chunk file config and output in webpack-->
     <script src="B.js"></script>
+    <!--load a local reset style file direct without local var webpack-->
+    <style>body {
+        background-color: rebeccapurple;
+    }</style>
+    <!--load a local google analyze file direct without local var webpack-->
+    <script src="google-analyze.js"></script>
 </head>
 <body>
 <script src="A.js"></script>
 <footer>web-webpack-plugin</footer>
+
 </body>
 </html>
 ```    
@@ -154,7 +167,8 @@ module.exports = {
 </head>
 <body>
 <script src="dev?_dev"></script>
-<script async src="googleAnalytics?_dist"></script>
+<!--load a local google analyze file direct without local var webpack-->
+<script async src="./google-analytics.js?_dist"></script>
 </body>
 </html>
 ```
@@ -179,7 +193,8 @@ module.exports = {
                 'dev': {
                     _dev: true
                 },
-                'googleAnalytics': {
+                //load a local google analyze file direct without local var webpack
+                './google-analytics.js': {
                     _dist: true
                 }
             }

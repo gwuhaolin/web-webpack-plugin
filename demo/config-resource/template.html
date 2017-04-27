@@ -8,6 +8,7 @@
 <body>
 <script src="dev?_dev"></script>
 <!--只在生产环境下注入谷歌分析-->
-<script async src="googleAnalytics?_dist"></script>
+<!--load a local google analyze file direct without local var webpack-->
+<script async src="./google-analytics.js?_dist"></script>
 </body>
 </html>

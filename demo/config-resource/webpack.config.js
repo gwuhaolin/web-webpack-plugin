@@ -26,7 +26,8 @@ module.exports = {
                 'dev': {
                     _dev: true
                 },
-                'googleAnalytics': {
+                //load a local google analyze file direct without local var webpack
+                './google-analytics.js': {
                     _dist: true
                 }
             }
