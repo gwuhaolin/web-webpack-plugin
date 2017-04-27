@@ -1,6 +1,6 @@
 {
   "name": "web-webpack-plugin",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "web plugin for webpack",
   "keywords": [
     "webpack",
