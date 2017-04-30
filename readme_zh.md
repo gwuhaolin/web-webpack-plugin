@@ -228,9 +228,9 @@ module.exports = {
             preEntrys:['./path/to/file1.js'],
             // 在所有入口页面的entry后插入
             postEntrys:['./path/to/file2.js'],
-            onPagesResolved: (pagesInfo) => {
-                // 在这里获取所有被AutoWebPlugin所生产的页面
-            }
+            // 是否输出一个名叫 pagemap.json 的文件，这个文件包含所有被AutoWebPlugin解析到的2入口页面，文件格式如下
+            // {"page name": "page url",}
+            outputPagemap: true,
         }),
     ]
 };

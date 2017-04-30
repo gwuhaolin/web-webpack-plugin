@@ -6,6 +6,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
+        publicPath: 'https://cdn.cn/'
     },
     entry: {
         ie_polyfill: './src/ie_polyfill',
@@ -20,10 +21,7 @@ module.exports = {
                 minChunks: 2,
             },
             entity: '',
-            onPagesResolved: (pagesMap) => {
-                console.log('get all pages resolved by AutoWebPlugin');
-                fs.writeFileSync('pagesMap.json', JSON.stringify(pagesMap));
-            }
+            outputPagemap: true,
         }),
     ]
 };

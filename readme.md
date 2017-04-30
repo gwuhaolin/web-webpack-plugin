@@ -232,9 +232,9 @@ module.exports = {
             preEntrys:['./path/to/file1.js'],
             // post append to all page's entry
             postEntrys:['./path/to/file2.js'],
-            onPagesResolved: (pagesInfo) => {
-                // get all pages resolved by AutoWebPlugin here
-            }
+            // whether output a pagemap.json file which contain all pages has been resolved with AutoWebPlugin in this way:
+            // {"page name": "page url",}
+            outputPagemap: true,
         }),
     ]
 };
