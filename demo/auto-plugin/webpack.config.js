@@ -20,7 +20,6 @@ module.exports = {
                 name: 'common',// name prop is require
                 minChunks: 2,
             },
-            entity: '',
             outputPagemap: true,
         }),
     ]

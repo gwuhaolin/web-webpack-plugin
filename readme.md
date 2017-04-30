@@ -221,7 +221,7 @@ module.exports = {
             // the template file path used by all pages
             template: './src/template.html',
             // javascript main file for current page,if it is null will use index.js in current page directory as main file
-            entity: null,
+            entry: null,
             // CommonsChunkPlugin options for all pages entry find by AutoWebPlugin.
             // if this is null will not do commonsChunk action
             commonsChunk: {
@@ -290,8 +290,8 @@ module.exports = {
     ]
 };
 ```
-### entity attribute
-The entity property is similar to template, and also supports callback functions for complex situations. But if the entity is empty to use the current page directory `index.jsx?` As the entrance
+### entry attribute
+The entry property is similar to template, and also supports callback functions for complex situations. But if the entry is empty to use the current page directory `index.jsx?` As the entrance
  
  
  
@@ -300,7 +300,7 @@ The entity property is similar to template, and also supports callback functions
 
 
 ## load css [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
-The resource for each entity may contain css code.
+The resource for each entry may contain css code.
 If you want to extract the css code to load alone rather than sneaking into the js where you need to load
 [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) 
 Separated css code, the rest of the things to me, I will automatically deal with the same as the above js css

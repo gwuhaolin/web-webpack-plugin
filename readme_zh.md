@@ -217,7 +217,7 @@ module.exports = {
             // 所有页面采用的模版文件
             template: './src/template.html',
             // 当前页面的javascript入口文件，如果为空就使用当前page目录下的 index.js 作为入口 
-            entity: null,
+            entry: null,
             // 提取出所有页面公共的代码,如果为空就不做提取操作。
             // 透传给 `CommonsChunkPlugin` 插件的属性
             commonsChunk: {
@@ -286,8 +286,8 @@ module.exports = {
     ]
 };
 ```
-### entity 属性
-entity 属性 和 template 类似，同样也支持回调函数应对复杂情况。但是如果 entity 为空就使用当前页面目录下的 `index.jsx?` 作为入口
+### entry 属性
+entry 属性 和 template 类似，同样也支持回调函数应对复杂情况。但是如果 entry 为空就使用当前页面目录下的 `index.jsx?` 作为入口
 
 
 
@@ -295,7 +295,7 @@ entity 属性 和 template 类似，同样也支持回调函数应对复杂情�
 
 
 ## 加载 css [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
-每个 entity 对应的 resource 可能会包含 css 代码。
+每个 entry 对应的 resource 可能会包含 css 代码。
 如果你想把css代码提取出来单独加载而不是潜入在js里加载你需要先使用
 [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) 
 分离出css代码，剩下的事情交给我，我会自动像上面处理js一样处理css
