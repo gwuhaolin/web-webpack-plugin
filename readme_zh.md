@@ -400,3 +400,6 @@ module.exports = {
 
 # 支持的 node.js 版本
 本插件使用了很多es6语法，支持最新的 node.js LTS 版本
+
+# 项目实践
+- [Redemo](https://github.com/gwuhaolin/redemo)
