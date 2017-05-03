@@ -215,8 +215,12 @@ module.exports = {
             './src/', 
             {
             // 所有页面采用的模版文件
+            // 如果 template 的类型是 string，template代表模版文件的相对于当前目录根目录的全文件路径
+            // 如果 template 的类型是 function，template代表可自定义逻辑的函数 function(pageName)=>newFullPath，告诉你当前页面名称你返回一个新的路径代表当前页面的模版路径
             template: './src/template.html',
-            // 当前页面的javascript入口文件，如果为空就使用当前page目录下的 index.js 作为入口 
+            // 当前页面的javascript入口文件，如果为空就使用当前page目录下的 index.js 作为入口
+            // 如果 entry 的类型是 string，entry代表入口文件的相对于当前目录根目录的全文件路径
+            // 如果 entry 的类型是 function，entry代表可自定义逻辑的函数 function(pageName)=>newFullPath，告诉你当前页面名称你返回一个新的路径代表当前页面的入口路径
             entry: null,
             // 提取出所有页面公共的代码,如果为空就不做提取操作。
             // 透传给 `CommonsChunkPlugin` 插件的属性

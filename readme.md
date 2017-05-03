@@ -219,8 +219,12 @@ module.exports = {
             './src/', 
             {
             // the template file path used by all pages
+            // if typeof template ===string: template config is html template file full path
+            // if typeof template ===function: template config is function(pageName)=>newFullPath ,ask user for detail
             template: './src/template.html',
             // javascript main file for current page,if it is null will use index.js in current page directory as main file
+            // typeof entry===string: entry config is entry file full path
+            // typeof entry===function: entry config is function(pageName)=>newFullPath ,ask user for detail
             entry: null,
             // CommonsChunkPlugin options for all pages entry find by AutoWebPlugin.
             // if this is null will not do commonsChunk action
