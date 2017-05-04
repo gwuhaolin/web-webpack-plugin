@@ -1,42 +1,42 @@
 {
-    "name": "web-webpack-plugin",
-    "version": "1.5.7",
-    "description": "web plugin for webpack",
-    "keywords": [
-        "webpack",
-        "plugin",
-        "html",
-        "web"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:gwuhaolin/web-webpack-plugin.git"
-    },
-    "main": "index.js",
-    "scripts": {
-        "demo:auto-plugin": "cd ./demo/auto-plugin/ && webpack && webpack -p --output-path dist-js-prod && cd ../../",
-        "demo:config-resource": "cd ./demo/config-resource/ && webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
-        "demo:out-html": "cd ./demo/out-html/ && webpack && cd ../../",
-        "demo:use-template": "cd ./demo/use-template/ && webpack && cd ../../",
-        "demo:extract-css": "cd ./demo/extract-css/ && webpack && cd ../../",
-        "demo:public-path": "cd ./demo/public-path/ && webpack && cd ../../",
-        "demo:pre-post-entrys": "cd ./demo/pre-post-entrys/ && webpack && cd ../../",
-        "demo:hmr": "cd ./demo/hmr/ && webpack-dev-server -d --hot",
-        "demo:load-local-file": "cd ./demo/load-local-file/ && webpack && cd ../../",
-        "demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && cd ../../"
-    },
-    "author": "halwu",
-    "license": "ISC",
-    "dependencies": {
-        "parse5": "^3.0.2"
-    },
-    "peerDependencies": {
-        "webpack": "^2.2.1",
-        "webpack-dev-server": "^2.4.1"
-    },
-    "devDependencies": {
-        "css-loader": "^0.28.1",
-        "style-loader": "^0.17.0",
-        "extract-text-webpack-plugin": "^2.1.0"
-    }
+  "name": "web-webpack-plugin",
+  "version": "1.5.7",
+  "description": "web plugin for webpack",
+  "keywords": [
+    "webpack",
+    "plugin",
+    "html",
+    "web"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gwuhaolin/web-webpack-plugin.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "demo:auto-plugin": "cd ./demo/auto-plugin/ && webpack && webpack -p --output-path dist-js-prod && cd ../../",
+    "demo:config-resource": "cd ./demo/config-resource/ && webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
+    "demo:out-html": "cd ./demo/out-html/ && webpack && cd ../../",
+    "demo:use-template": "cd ./demo/use-template/ && webpack && cd ../../",
+    "demo:extract-css": "cd ./demo/extract-css/ && webpack && cd ../../",
+    "demo:public-path": "cd ./demo/public-path/ && webpack && cd ../../",
+    "demo:pre-post-entrys": "cd ./demo/pre-post-entrys/ && webpack && cd ../../",
+    "demo:hmr": "cd ./demo/hmr/ && webpack-dev-server -d --hot",
+    "demo:load-local-file": "cd ./demo/load-local-file/ && webpack && cd ../../",
+    "demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && cd ../../"
+  },
+  "author": "halwu",
+  "license": "ISC",
+  "dependencies": {
+    "parse5": "^3.0.2"
+  },
+  "peerDependencies": {
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.1",
+    "style-loader": "^0.17.0",
+    "extract-text-webpack-plugin": "^2.1.0"
+  }
 }
