@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="zh-cn"><head>
+    <!--reset.css is a local file-->
+    <style>body{
+    background-color: red;
+}</style>
+    <!--A is a chunk define in webpack-->
+    <script src="A.js"></script>
+    <!--jquery.js is a local file,this will load direct without packed by webpack,support config-->
+    <script src="jquery.js"></script>
+    <!--load local file ie-polyfill.js direct with config-->
+    <!--[if IE]><script src="ie-polyfill.js"></script><![endif]-->
+</head>
+<body>
+
+</body></html>
