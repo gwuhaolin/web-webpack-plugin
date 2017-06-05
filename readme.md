@@ -218,24 +218,44 @@ module.exports = {
             // the directory hold all pages
             './src/', 
             {
+            // all props below is not required  
+              
+            // {string,function}
             // the template file path used by all pages
             // if typeof template ===string: template config is html template file full path
             // if typeof template ===function: template config is function(pageName)=>newFullPath ,ask user for detail
             template: './src/template.html',
+            
+            // {string,function}
             // javascript main file for current page,if it is null will use index.js in current page directory as main file
             // typeof entry===string: entry config is entry file full path
             // typeof entry===function: entry config is function(pageName)=>newFullPath ,ask user for detail
             entry: null,
+            
+            // {function}
+            // get WebPlugin output filename,default filename is pageName
+            // set filename as function(pageName)=>filename to add custom logic 
+            filename:null,
+            
             // CommonsChunkPlugin options for all pages entry find by AutoWebPlugin.
             // if this is null will not do commonsChunk action
             commonsChunk: {
                 name: 'common',// name prop is require,output filename
                 minChunks: 2,// come from CommonsChunkPlugin
             },
-            // pre append to all page's entry
+            
+            // {Array} pre append to all page's entry
             preEntrys:['./path/to/file1.js'],
-            // post append to all page's entry
+            
+            // {Array} post append to all page's entry
             postEntrys:['./path/to/file2.js'],
+            
+            // {string} publicPath for css file,for js file will use webpack.publicPath
+            stylePublicPath:null,
+            
+            // page name list will not ignore by AutoWebPlugin(Not output html file for this page name)
+            ignorePages:['pageName'],
+            
             // whether output a pagemap.json file which contain all pages has been resolved with AutoWebPlugin in this way:
             // {"page name": "page url",}
             outputPagemap: true,

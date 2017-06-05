@@ -214,24 +214,43 @@ module.exports = {
             // 所有页面的入口目录
             './src/', 
             {
+            // 以下所有的属性都不是必须的，按照需要选填  
+
+            // {string,function}
             // 所有页面采用的模版文件
             // 如果 template 的类型是 string，template代表模版文件的相对于当前目录根目录的全文件路径
             // 如果 template 的类型是 function，template代表可自定义逻辑的函数 function(pageName)=>newFullPath，告诉你当前页面名称你返回一个新的路径代表当前页面的模版路径
             template: './src/template.html',
+            
             // 当前页面的javascript入口文件，如果为空就使用当前page目录下的 index.js 作为入口
             // 如果 entry 的类型是 string，entry代表入口文件的相对于当前目录根目录的全文件路径
             // 如果 entry 的类型是 function，entry代表可自定义逻辑的函数 function(pageName)=>newFullPath，告诉你当前页面名称你返回一个新的路径代表当前页面的入口路径
             entry: null,
+            
+            // {function}
+            // 每个page输出的html的名称，默认按照文件夹名称作为html名称，
+            // 设置 filename 为 function(pageName)=>filename 类型 可添加自定义逻辑
+            filename:null,
+            
             // 提取出所有页面公共的代码,如果为空就不做提取操作。
             // 透传给 `CommonsChunkPlugin` 插件的属性
             commonsChunk: {
                  name: 'common',// 必填属性,输出的文件名称
                  minChunks: 2,// 来自 CommonsChunkPlugin 插件
             },
+            
             // 在所有入口页面的entry前插入
             preEntrys:['./path/to/file1.js'],
+            
             // 在所有入口页面的entry后插入
             postEntrys:['./path/to/file2.js'],
+            
+            // {string} publicPath for css file,for js file will use webpack.publicPath
+            stylePublicPath:null,
+            
+            // page name list will not ignore by AutoWebPlugin(Not output html file for this page name)
+            ignorePages:['pageName'],
+            
             // 是否输出一个名叫 pagemap.json 的文件，这个文件包含所有被AutoWebPlugin解析到的2入口页面，文件格式如下
             // {"page name": "page url",}
             outputPagemap: true,
