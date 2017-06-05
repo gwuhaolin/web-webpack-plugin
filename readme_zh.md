@@ -212,7 +212,7 @@ module.exports = {
     plugins: [
         new AutoWebPlugin(
             // 所有页面的入口目录
-            './src/', 
+            './src/pages', 
             {
             // 以下所有的属性都不是必须的，按照需要选填  
 
@@ -288,7 +288,7 @@ module.exports = {
 ```
 `AutoWebPlugin`插件找出了`./src/`目录下所有的目录`home login signup`,针对这3个目录分别读取目录里的`index.js`作为入口，生成三个html文件`home.html login.html signup.html`
 
-### ignorePages attribute
+### ignorePages 属性
 `ignorePages` 被忽略的页面名称列表，被忽略的页面将不会被AutoWebPlugin处理产生对于的html文件，类型是元素为字符串的数组。
 
 ### template 属性

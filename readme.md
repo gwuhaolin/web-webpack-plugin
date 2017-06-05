@@ -216,7 +216,7 @@ module.exports = {
     plugins: [
         new AutoWebPlugin(
             // the directory hold all pages
-            './src/', 
+            './src/pages', 
             {
             // all props below is not required  
               
