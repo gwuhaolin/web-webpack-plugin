@@ -1,1 +1,1 @@
-webpackJsonp([0,5],{2:function(n,p){alert("page signup")},7:function(n,p,e){n.exports=e(2)}},[7]);
+webpackJsonp([0],{2:function(n,p){alert("page signup")},7:function(n,p,e){n.exports=e(2)}},[7]);

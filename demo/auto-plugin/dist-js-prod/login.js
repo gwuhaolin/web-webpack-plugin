@@ -1,1 +1,1 @@
-webpackJsonp([1,5],{1:function(n,o){alert("page login")},6:function(n,o,e){n.exports=e(1)}},[6]);
+webpackJsonp([1],{1:function(n,o){alert("page login")},6:function(n,o,e){n.exports=e(1)}},[6]);
