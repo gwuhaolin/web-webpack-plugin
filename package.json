@@ -1,6 +1,6 @@
 {
   "name": "web-webpack-plugin",
-  "version": "1.5.8",
+  "version": "1.6.0",
   "description": "web plugin for webpack",
   "keywords": [
     "webpack",
@@ -18,6 +18,7 @@
     "demo:config-resource": "cd ./demo/config-resource/ && webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
     "demo:out-html": "cd ./demo/out-html/ && webpack && cd ../../",
     "demo:use-template": "cd ./demo/use-template/ && webpack && cd ../../",
+    "demo:watch-template": "cd ./demo/watch-template/ && webpack -w && cd ../../",
     "demo:extract-css": "cd ./demo/extract-css/ && webpack && cd ../../",
     "demo:public-path": "cd ./demo/public-path/ && webpack && cd ../../",
     "demo:pre-post-entrys": "cd ./demo/pre-post-entrys/ && webpack && cd ../../",
