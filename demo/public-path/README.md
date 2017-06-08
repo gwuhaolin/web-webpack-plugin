@@ -24,7 +24,7 @@
           // 通过css加载的文件都放在9.url.cn
           publicPath: CND.img,
           fallback: 'style-loader',
-          use: ['css-loader?minimize'],
+          use: ['css-loader'],
         }),
       },
 ```
