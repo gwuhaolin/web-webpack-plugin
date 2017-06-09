@@ -13,6 +13,10 @@
     "url": "git@github.com:gwuhaolin/web-webpack-plugin.git"
   },
   "main": "index.js",
+  "author": "gwuhaolin",
+  "engines": {
+    "node": ">= 7.0.0"
+  },
   "scripts": {
     "demo:auto-plugin": "cd ./demo/auto-plugin/ && webpack && webpack -p --output-path dist-js-prod && cd ../../",
     "demo:config-resource": "cd ./demo/config-resource/ && webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
@@ -26,7 +30,6 @@
     "demo:load-local-file": "cd ./demo/load-local-file/ && webpack && cd ../../",
     "demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && cd ../../"
   },
-  "author": "halwu",
   "license": "ISC",
   "dependencies": {
     "parse5": "^3.0.2"
