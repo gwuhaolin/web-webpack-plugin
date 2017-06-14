@@ -2,7 +2,7 @@
 [![Npm Downloads](http://img.shields.io/npm/dm/web-webpack-plugin.svg?style=flat-square)](https://www.npmjs.com/package/web-webpack-plugin)
 [![Dependency Status](https://david-dm.org/gwuhaolin/web-webpack-plugin.svg?style=flat-square)](https://npmjs.org/package/web-webpack-plugin)
 
-### [中文文档  Chinese](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/readme_zh.md)
+### [中文文档](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/readme_zh.md)
 
 # Install
 ```bash
