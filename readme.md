@@ -428,9 +428,5 @@ This plugin takes into account both **development** environment and **production
 `webpack -p` will use DefinePlugin define `NODE_ENV=production`。
 
 
-# Require
-- This plugin uses a lot of es6 syntax, support the latest node.js LTS version
-- webpack1 is not support, webpack2 is required
-
 # In practice
 - [Redemo](https://github.com/gwuhaolin/redemo)

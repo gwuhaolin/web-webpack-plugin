@@ -421,10 +421,6 @@ module.exports = {
 `webpack -p` 参数会通过 DefinePlugin 定义 `NODE_ENV=production`。
 
 
-# 依赖
-- 本插件使用了很多es6语法，支持最新的 node.js LTS 版本
-- 不支持 webpack1，只支持 webpack2
-
 # 项目实践
 - [Redemo](https://github.com/gwuhaolin/redemo)
 - [使用HTML模版配置资源注入到HTML](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)

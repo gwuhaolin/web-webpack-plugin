@@ -15,7 +15,7 @@
   "main": "index.js",
   "author": "gwuhaolin",
   "engines": {
-    "node": ">= 7.0.0"
+    "node": ">= 6.0.0"
   },
   "scripts": {
     "demo:auto-plugin": "cd ./demo/auto-plugin/ && webpack && webpack -p --output-path dist-js-prod && cd ../../",
