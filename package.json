@@ -1,48 +1,48 @@
 {
-  "name": "web-webpack-plugin",
-  "version": "1.6.5",
-  "description": "web plugin for webpack",
-  "keywords": [
-    "webpack",
-    "plugin",
-    "html",
-    "web"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:gwuhaolin/web-webpack-plugin.git"
-  },
-  "main": "index.js",
-  "author": "gwuhaolin",
-  "engines": {
-    "node": ">= 6.0.0"
-  },
-  "scripts": {
-    "precommit": "eslint ./lib",
-    "eslint:fix": "eslint ./lib --fix",
-    "demo:auto-plugin": "cd ./demo/auto-plugin/ && webpack && webpack -p --output-path dist-js-prod && cd ../../",
-    "demo:config-resource": "cd ./demo/config-resource/ && webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
-    "demo:out-html": "cd ./demo/out-html/ && webpack && cd ../../",
-    "demo:use-template": "cd ./demo/use-template/ && webpack && cd ../../",
-    "demo:watch-template": "cd ./demo/watch-template/ && webpack -w && cd ../../",
-    "demo:extract-css": "cd ./demo/extract-css/ && webpack && cd ../../",
-    "demo:public-path": "cd ./demo/public-path/ && webpack && cd ../../",
-    "demo:pre-post-entrys": "cd ./demo/pre-post-entrys/ && webpack && cd ../../",
-    "demo:hmr": "cd ./demo/hmr/ && webpack-dev-server --hot",
-    "demo:load-local-file": "cd ./demo/load-local-file/ && webpack && webpack -p --output-path dist-prod --config webpack-prod.config.js && cd ../../",
-    "demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && cd ../../"
-  },
-  "license": "ISC",
-  "dependencies": {
-    "parse5": "^3.0.2",
-    "webpack": "^2.0.0"
-  },
-  "devDependencies": {
-    "css-loader": "^0.28.4",
-    "eslint": "^4.0.0",
-    "extract-text-webpack-plugin": "^2.1.2",
-    "husky": "^0.13.4",
-    "style-loader": "^0.18.2",
-    "webpack-dev-server": "^2.4.5"
-  }
+	"name": "web-webpack-plugin",
+	"version": "1.7.0",
+	"description": "web plugin for webpack",
+	"keywords": [
+		"webpack",
+		"plugin",
+		"html",
+		"web"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:gwuhaolin/web-webpack-plugin.git"
+	},
+	"main": "index.js",
+	"author": "gwuhaolin",
+	"engines": {
+		"node": ">= 6.0.0"
+	},
+	"scripts": {
+		"precommit": "eslint lib",
+		"eslint:fix": "eslint lib --fix",
+		"demo:auto-plugin": "cd demo/auto-plugin && rm -rf dist && rm -rf dist-js-prod && webpack && webpack -p --output-path dist-js-prod && cd ../../",
+		"demo:config-resource": "cd demo/config-resource && rm -rf dist-js && rm -rf dist-js-prod && rm -rf dist-template && rm -rf dist &&  webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
+		"demo:out-html": "cd demo/out-html && rm -rf dist && webpack && cd ../../",
+		"demo:use-template": "cd demo/use-template && rm -rf dist && webpack && cd ../../",
+		"demo:watch-template": "cd demo/watch-template && rm -rf dist && webpack -w && cd ../../",
+		"demo:extract-css": "cd demo/extract-css && rm -rf dist && webpack && cd ../../",
+		"demo:public-path": "cd demo/public-path && rm -rf dist  && webpack && cd ../../",
+		"demo:pre-post-entrys": "cd demo/pre-post-entrys && rm -rf dist && webpack && cd ../../",
+		"demo:hmr": "cd demo/hmr && webpack-dev-server --hot",
+		"demo:load-local-file": "cd demo/load-local-file && rm -rf dist && rm -rf dist-prod && webpack && webpack -p --output-path dist-prod --config webpack-prod.config.js && cd ../../",
+		"demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && cd ../../"
+	},
+	"license": "ISC",
+	"dependencies": {
+		"parse5": "^3.0.2",
+		"webpack": "^2.0.0"
+	},
+	"devDependencies": {
+		"css-loader": "^0.28.4",
+		"eslint": "^4.0.0",
+		"extract-text-webpack-plugin": "^2.1.2",
+		"husky": "^0.13.4",
+		"style-loader": "^0.18.2",
+		"webpack-dev-server": "^2.4.5"
+	}
 }
