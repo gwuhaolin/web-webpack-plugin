@@ -18,6 +18,8 @@
     "node": ">= 6.0.0"
   },
   "scripts": {
+    "precommit": "eslint ./lib",
+    "eslint:fix": "eslint ./lib --fix",
     "demo:auto-plugin": "cd ./demo/auto-plugin/ && webpack && webpack -p --output-path dist-js-prod && cd ../../",
     "demo:config-resource": "cd ./demo/config-resource/ && webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
     "demo:out-html": "cd ./demo/out-html/ && webpack && cd ../../",
@@ -32,7 +34,9 @@
   },
   "license": "ISC",
   "dependencies": {
-    "parse5": "^3.0.2"
+    "parse5": "^3.0.2",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "peerDependencies": {
     "webpack": "^2.6.1",
@@ -40,7 +44,9 @@
   },
   "devDependencies": {
     "css-loader": "^0.28.4",
-    "style-loader": "^0.18.2",
-    "extract-text-webpack-plugin": "^2.1.2"
+    "eslint": "^4.0.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "husky": "^0.13.4",
+    "style-loader": "^0.18.2"
   }
 }
