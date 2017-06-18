@@ -29,7 +29,7 @@
     "demo:public-path": "cd ./demo/public-path/ && webpack && cd ../../",
     "demo:pre-post-entrys": "cd ./demo/pre-post-entrys/ && webpack && cd ../../",
     "demo:hmr": "cd ./demo/hmr/ && webpack-dev-server --hot",
-    "demo:load-local-file": "cd ./demo/load-local-file/ && webpack && cd ../../",
+    "demo:load-local-file": "cd ./demo/load-local-file/ && webpack && webpack -p --output-path dist-prod --config webpack-prod.config.js && cd ../../",
     "demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && cd ../../"
   },
   "license": "ISC",
