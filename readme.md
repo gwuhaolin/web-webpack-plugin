@@ -208,59 +208,64 @@ module.exports = {
 
 
 ## auto detect html entry [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)
-`AutoWebPlugin` can find all page entry in an directory,then auto config an `WebPlugin` for every page to output an html file,you can use it as below:
+`AutoWebPlugin` plugin can find all page entry in an directory, then auto config an `WebPlugin` for every page to output an html file, you can use it as below:
 
 **webpack config**
 ```js
+const autoPlugin = new AutoWebPlugin(
+	// the directory hold all pages
+	'./src/pages', 
+	{
+	// all props below is not required  
+	  
+	// {string,function}
+	// the template file path used by all pages
+	// if typeof template ===string: template config is html template file full path
+	// if typeof template ===function: template config is function(pageName)=>newFullPath ,ask user for detail
+	template: './src/template.html',
+	
+	// {string,function}
+	// javascript main file for current page,if it is null will use index.js in current page directory as main file
+	// typeof entry===string: entry config is entry file full path
+	// typeof entry===function: entry config is function(pageName)=>newFullPath ,ask user for detail
+	entry: null,
+	
+	// {function}
+	// get WebPlugin output filename,default filename is pageName
+	// set filename as function(pageName)=>filename to add custom logic 
+	filename:null,
+	
+	// CommonsChunkPlugin options for all pages entry find by AutoWebPlugin.
+	// if this is null will not do commonsChunk action
+	commonsChunk: {
+	    name: 'common',// name prop is require,output filename
+	    minChunks: 2,// come from CommonsChunkPlugin
+	},
+	
+	// {Array} pre append to all page's entry
+	preEntrys:['./path/to/file1.js'],
+	
+	// {Array} post append to all page's entry
+	postEntrys:['./path/to/file2.js'],
+	
+	// {string} publicPath for css file,for js file will use webpack.publicPath
+	stylePublicPath:null,
+	
+	// page name list will not ignore by AutoWebPlugin(Not output html file for this page name)
+	ignorePages:['pageName'],
+	
+	// whether output a pagemap.json file which contain all pages has been resolved with AutoWebPlugin in this way:
+	// {"page name": "page url",}
+	outputPagemap: true,
+	}
+);
+
 module.exports = {
-    plugins: [
-        new AutoWebPlugin(
-            // the directory hold all pages
-            './src/pages', 
-            {
-            // all props below is not required  
-              
-            // {string,function}
-            // the template file path used by all pages
-            // if typeof template ===string: template config is html template file full path
-            // if typeof template ===function: template config is function(pageName)=>newFullPath ,ask user for detail
-            template: './src/template.html',
-            
-            // {string,function}
-            // javascript main file for current page,if it is null will use index.js in current page directory as main file
-            // typeof entry===string: entry config is entry file full path
-            // typeof entry===function: entry config is function(pageName)=>newFullPath ,ask user for detail
-            entry: null,
-            
-            // {function}
-            // get WebPlugin output filename,default filename is pageName
-            // set filename as function(pageName)=>filename to add custom logic 
-            filename:null,
-            
-            // CommonsChunkPlugin options for all pages entry find by AutoWebPlugin.
-            // if this is null will not do commonsChunk action
-            commonsChunk: {
-                name: 'common',// name prop is require,output filename
-                minChunks: 2,// come from CommonsChunkPlugin
-            },
-            
-            // {Array} pre append to all page's entry
-            preEntrys:['./path/to/file1.js'],
-            
-            // {Array} post append to all page's entry
-            postEntrys:['./path/to/file2.js'],
-            
-            // {string} publicPath for css file,for js file will use webpack.publicPath
-            stylePublicPath:null,
-            
-            // page name list will not ignore by AutoWebPlugin(Not output html file for this page name)
-            ignorePages:['pageName'],
-            
-            // whether output a pagemap.json file which contain all pages has been resolved with AutoWebPlugin in this way:
-            // {"page name": "page url",}
-            outputPagemap: true,
-        }),
-    ]
+	// AutoWebPlugin will generate a entry for every page find in the directory hold all pages
+	// autoPlugin.entry({}) used to pass entrys find by AutoWebPlugin to webpack config
+	entry: autoPlugin.entry({
+		youAdditionalEntryName: 'you additional entry path',
+	}),
 };
 ```
 
@@ -302,17 +307,13 @@ In the complex case,You can set the template to a function, as follows using the
 
 **webpack config**
 ```js
-const path = require('path');
-module.exports = {
-    plugins: [
-        new AutoWebPlugin('./src/', {
-            // Template files used by all pages
-            template: (pageName) => {
-                return path.resolve('./src',pageName,'index.html');
-            },
-        }),
-    ]
-};
+new AutoWebPlugin('./src/', {
+   // Template files used by all pages
+   template: (pageName) => {
+        return path.resolve('./src',pageName,'index.html');
+   },
+	}
+);
 ```
 ### entry attribute
 The entry property is similar to template, and also supports callback functions for complex situations. But if the entry is empty to use the current page directory `index.jsx?` As the entrance
