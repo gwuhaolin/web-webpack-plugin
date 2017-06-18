@@ -1,3 +1,5 @@
+# web-webpack-plugin 
+一个很好的[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)替代品。
 web应用需要加载的资源都需要在 webpack 的 entry里配置，最后输出对应的代码块，但是要让web应用运行起来还需要通过html加载这些资源放在浏览器里运行。webpack只做了资源打包的工作还缺少把这些加载到html里运行的功能，本插件补足了这个功能。
 
 # 安装
