@@ -1,1 +1,1 @@
-console.lo('module A load from web-webpack-plugin');
+console.log('module A load from web-webpack-plugin');
