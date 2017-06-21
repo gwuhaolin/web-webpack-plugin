@@ -3,7 +3,7 @@
 [![Dependency Status](https://david-dm.org/gwuhaolin/web-webpack-plugin.svg?style=flat-square)](https://npmjs.org/package/web-webpack-plugin)
 
 # web-webpack-plugin 
-a good alternatives for [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin).
+A good alternatives for [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), can make webpack use HTML as entry.
 
 ### [中文文档](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/readme_zh.md)
 

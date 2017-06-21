@@ -1,12 +1,13 @@
 {
 	"name": "web-webpack-plugin",
 	"version": "1.7.1",
-	"description": "web plugin for webpack",
+	"description": "web plugin for webpack, alternatives for html-webpack-plugin, use HTML as entry",
 	"keywords": [
 		"webpack",
 		"plugin",
 		"html",
-		"web"
+		"web",
+		"entry"
 	],
 	"repository": {
 		"type": "git",
