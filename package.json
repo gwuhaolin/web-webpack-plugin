@@ -41,7 +41,7 @@
 	},
 	"devDependencies": {
 		"css-loader": "^0.28.4",
-		"eslint": "^4.0.0",
+		"eslint": "^4.1.0",
 		"extract-text-webpack-plugin": "^2.1.2",
 		"husky": "^0.13.4",
 		"style-loader": "^0.18.2",

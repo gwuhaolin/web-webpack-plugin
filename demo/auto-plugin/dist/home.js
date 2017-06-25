@@ -1,18 +1,15 @@
-webpackJsonp([2],{
+webpackJsonp([2],[
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ 0:
+module.exports = __webpack_require__(1);
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 alert('page home');
 
-/***/ }),
-
-/***/ 5:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(0);
-
-
 /***/ })
-
-},[5]);
+],[0]);
