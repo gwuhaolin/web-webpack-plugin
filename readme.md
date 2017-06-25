@@ -1,4 +1,5 @@
 [![Npm Package](https://img.shields.io/npm/v/web-webpack-plugin.svg?style=flat-square)](https://www.npmjs.com/package/web-webpack-plugin)
+[![Build Status](https://img.shields.io/travis/gwuhaolin/web-webpack-plugin.svg?style=flat-square)](https://travis-ci.org/gwuhaolin/web-webpack-plugin)
 [![Npm Downloads](http://img.shields.io/npm/dm/web-webpack-plugin.svg?style=flat-square)](https://www.npmjs.com/package/web-webpack-plugin)
 [![Dependency Status](https://david-dm.org/gwuhaolin/web-webpack-plugin.svg?style=flat-square)](https://npmjs.org/package/web-webpack-plugin)
 
