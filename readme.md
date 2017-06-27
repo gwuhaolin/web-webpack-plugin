@@ -30,7 +30,7 @@ module.exports = {
     },
     plugins: [
         new WebPlugin({
-            // file name for output file(don't be output path like html/index.html), required.
+            // file name or full path for output file, required.
             // pay attention not to duplication of name,as is will cover other file
             filename: 'index.html',
             // this html's requires entry,must be an array.dependent resource will inject into html use the order entry in array.
