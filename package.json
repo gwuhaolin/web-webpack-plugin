@@ -1,6 +1,6 @@
 {
 	"name": "web-webpack-plugin",
-	"version": "1.7.2",
+	"version": "1.7.3",
 	"description": "web plugin for webpack, alternatives for html-webpack-plugin, use HTML as entry",
 	"keywords": [
 		"webpack",
@@ -28,6 +28,8 @@
 		"demo:watch-template": "cd demo/watch-template && rm -rf dist && webpack -w && cd ../../",
 		"demo:extract-css": "cd demo/extract-css && rm -rf dist && webpack && cd ../../",
 		"demo:public-path": "cd demo/public-path && rm -rf dist  && webpack && cd ../../",
+		"demo:relative-path": "cd demo/relative-path && rm -rf dist  && webpack && cd ../../",
+		"demo:relative-path-public-path": "cd demo/relative-path-public-path && rm -rf dist  && webpack && cd ../../",
 		"demo:pre-post-entrys": "cd demo/pre-post-entrys && rm -rf dist && webpack && cd ../../",
 		"demo:hmr": "cd demo/hmr && webpack-dev-server --hot",
 		"demo:load-local-file": "cd demo/load-local-file && rm -rf dist && rm -rf dist-prod && webpack && webpack -p --output-path dist-prod --config webpack-prod.config.js && cd ../../",
@@ -42,9 +44,10 @@
 	},
 	"devDependencies": {
 		"css-loader": "^0.28.4",
-		"eslint": "^4.1.0",
-		"extract-text-webpack-plugin": "^2.1.2",
-		"husky": "^0.13.4",
+		"eslint": "^4.1.1",
+		"extract-text-webpack-plugin": "^3.0.0-beta.3",
+		"file-loader": "^0.11.2",
+		"husky": "^0.14.1",
 		"style-loader": "^0.18.2",
 		"webpack-dev-server": "^2.5.0"
 	}
