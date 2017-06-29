@@ -426,7 +426,9 @@ module.exports = {
 
 
 # 项目实践
-- [Redemo](https://github.com/gwuhaolin/redemo)
+- [redemo](https://github.com/gwuhaolin/redemo) 快速优雅的为 react 组件生成文档
+- [resume](https://github.com/gwuhaolin/resume) 我的简历
+- [remd](https://github.com/gwuhaolin/remd) 高性能 react markdown 组件
 - [使用HTML模版配置资源注入到HTML](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)
 - [在webpack里直接通过JS配置资源注入到HTML](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-resource)
 - [管理多个单页应用](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)

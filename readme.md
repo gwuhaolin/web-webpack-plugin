@@ -3,10 +3,10 @@
 [![Npm Downloads](http://img.shields.io/npm/dm/web-webpack-plugin.svg?style=flat-square)](https://www.npmjs.com/package/web-webpack-plugin)
 [![Dependency Status](https://david-dm.org/gwuhaolin/web-webpack-plugin.svg?style=flat-square)](https://npmjs.org/package/web-webpack-plugin)
 
+### [中文文档](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/readme_zh.md)
+
 # web-webpack-plugin 
 A good alternatives for [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), can make webpack use HTML as entry and handle multi pages.
-
-### [中文文档](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/readme_zh.md)
 
 # Install
 ```bash
@@ -434,4 +434,6 @@ This plugin takes into account both **development** environment and **production
 
 
 # In practice
-- [Redemo](https://github.com/gwuhaolin/redemo)
+- [redemo](https://github.com/gwuhaolin/redemo) elegant react demo component
+- [resume](https://github.com/gwuhaolin/resume) my resume
+- [remd](https://github.com/gwuhaolin/remd) fast react markdown component
