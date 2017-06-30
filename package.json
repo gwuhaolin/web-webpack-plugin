@@ -34,7 +34,7 @@
 		"demo:hmr": "cd demo/hmr && webpack-dev-server --hot",
 		"demo:load-local-file": "cd demo/load-local-file && rm -rf dist && rm -rf dist-prod && webpack && webpack -p --output-path dist-prod --config webpack-prod.config.js && cd ../../",
 		"demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && npm run demo:relative-path && npm run demo:relative-path-public-path && cd ../../",
-		"test": "npm run demo && git ls-files -m demo"
+		"test": "node test.js"
 	},
 	"license": "ISC",
 	"dependencies": {
