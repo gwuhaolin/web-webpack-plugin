@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
-const { execSync } = require('child_process');
+const assert = require('assert');
+const { execSync, spawn } = require('child_process');
 
-const webpack = execSync('npm run demo').toString();
-console.log(webpack);
-const change = execSync('git ls-files -m demo').toString();
-if (change.length > 0) {
-	console.error(`😡 webpack compile out in demo has changed, review these files:\n${change}`);
-	process.exit(1);
-} else {
+const webpack = spawn('npm', ['run', 'demo']);
+webpack.stdout.pipe(process.stdout);
+
+webpack.on('close', (code) => {
+	assert.equal(code, 0, '😡 webpack should run complete successful!');
+	const change = execSync('git ls-files -m demo').toString();
+	assert.equal(change.length, 0, `😡 webpack compile out in demo has changed, review these files:\n${change}`);
 	console.info('😘 webpack compile out in demo not change, test pass~');
-}
+});
