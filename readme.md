@@ -228,6 +228,10 @@ const autoPlugin = new AutoWebPlugin(
 	// if typeof template ===function: template config is function(pageName)=>newFullPath ,ask user for detail
 	template: './src/template.html',
 	
+	// { function(pageName,templateFullPath)=>htmlString }
+	// if provide AutoWebPlugin will use Compiler to compile org template file to html content before used it in WebPlugin
+	templateCompiler: (pageName,templateFullPath)=>'',
+	
 	// {string,function}
 	// javascript main file for current page,if it is null will use index.js in current page directory as main file
 	// typeof entry===string: entry config is entry file full path
@@ -301,6 +305,11 @@ module.exports = {
 │   └── signup.js
 ```
 `AutoWebPlugin` find all page `home login signup` directory in `./src/`,for this three page `home login signup` will use `index.js` as main file and output three html file `home.html login.html signup.html`
+
+AutoWebPlugin find all page `home login signup` in dir `./src/` then:
+- use index.js as entry for every page to make a chunk named `chunk home login signup`
+- output html files for every page `home.html login.html signup.html`
+- auto inject resource required by every page（e.g home.html will inject home chunk）
 
 ### ignorePages attribute
 `ignorePages` page name list will not ignore by AutoWebPlugin(Not output html file for this page name),type is array of string.
