@@ -223,6 +223,12 @@ const autoPlugin = new AutoWebPlugin(
     		// 如果 template 的类型是 function，template代表可自定义逻辑的函数 function(pageName)=>newFullPath，告诉你当前页面名称你返回一个新的路径代表当前页面的模版路径
     		template: './src/template.html',
     		
+				// {string,function}
+    		// 所有页面采用的模版的字符串内容
+    		// 如果 template 的类型是 string，代表模版的字符串内容
+    		// 如果 template 的类型是 function，代表可自定义逻辑的函数 function(pageName)=>templateContent，告诉你当前页面名称你返回一个新的路径代表当前页面的模版的字符串内容
+    		templateContent: `<!DOCTYPE html>....`,    		
+    		
     		// 当前页面的javascript入口文件，如果为空就使用当前page目录下的 index.js 作为入口
     		// 如果 entry 的类型是 string，entry代表入口文件的相对于当前目录根目录的全文件路径
     		// 如果 entry 的类型是 function，entry代表可自定义逻辑的函数 function(pageName)=>newFullPath，告诉你当前页面名称你返回一个新的路径代表当前页面的入口路径
@@ -294,7 +300,10 @@ module.exports = {
 │   ├── signup.html
 │   └── signup.js
 ```
-`AutoWebPlugin`插件找出了`./src/`目录下所有的目录`home login signup`,针对这3个目录分别读取目录里的`index.js`作为入口，生成三个html文件`home.html login.html signup.html`
+`AutoWebPlugin`插件找出了`./src/`目录下所有的目录`home login signup`:
+- 针对这3个目录分别读取目录里的`index.js`作为入口生成三个chunk `home login signup`
+- 生成三个html文件`home.html login.html signup.html`
+- 在每个生成的html里自动注入了该html所依赖的资源（例如 home.html 会自动注入 home chunk）
 
 ### ignorePages 属性
 `ignorePages` 被忽略的页面名称列表，被忽略的页面将不会被AutoWebPlugin处理产生对于的html文件，类型是元素为字符串的数组。
