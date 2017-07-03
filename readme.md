@@ -233,6 +233,12 @@ const autoPlugin = new AutoWebPlugin(
 	templateCompiler: (pageName,templateFullPath)=>'',
 	
 	// {string,function}
+	// get WebPlugin template's string content, high priority than template
+	// typeof===string: template config is html template file string content
+	// typeof===function: template config is function,ask user for detail
+	templateContent: `<!DOCTYPE html>....`,	
+	
+	// {string,function}
 	// javascript main file for current page,if it is null will use index.js in current page directory as main file
 	// typeof entry===string: entry config is entry file full path
 	// typeof entry===function: entry config is function(pageName)=>newFullPath ,ask user for detail
@@ -304,7 +310,10 @@ module.exports = {
 │   ├── signup.html
 │   └── signup.js
 ```
-`AutoWebPlugin` find all page `home login signup` directory in `./src/`,for this three page `home login signup` will use `index.js` as main file and output three html file `home.html login.html signup.html`
+`AutoWebPlugin` find all page `home login signup` directory in `./src/`,for this three page `home login signup`:
+- will use `index.js` as main file add three chunk `home login signup` 
+- output three html file `home.html login.html signup.html`
+- auto inject resource required by ever page. e.g(inject home chunk to home.html)
 
 AutoWebPlugin find all page `home login signup` in dir `./src/` then:
 - use index.js as entry for every page to make a chunk named `chunk home login signup`
