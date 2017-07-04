@@ -1,6 +1,6 @@
 {
 	"name": "web-webpack-plugin",
-	"version": "1.8.1",
+	"version": "1.8.2",
 	"description": "web plugin for webpack, alternatives for html-webpack-plugin, use HTML as entry",
 	"keywords": [
 		"webpack",
@@ -26,6 +26,7 @@
 		"demo:out-html": "cd demo/out-html && rm -rf dist && webpack && cd ../../",
 		"demo:use-template": "cd demo/use-template && rm -rf dist && webpack && cd ../../",
 		"demo:use-template-complier": "cd demo/use-template-complier && rm -rf dist && webpack && cd ../../",
+		"demo:watch-template-complier": "cd demo/use-template-complier && rm -rf dist && webpack -w && cd ../../",
 		"demo:watch-template": "cd demo/watch-template && rm -rf dist && webpack -w && cd ../../",
 		"demo:extract-css": "cd demo/extract-css && rm -rf dist && webpack && cd ../../",
 		"demo:public-path": "cd demo/public-path && rm -rf dist  && webpack && cd ../../",
