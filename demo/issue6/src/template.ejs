@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="<%= `${pageName}?_inline` %>">
+	<!--polyfill chunk 是用户自己配置的 不是 AutoWebPlugin 生成的，所以需要自己注入-->
+	<script src="polyfill?_ie"></script>
+</head>
+<body>
+<script src="<%= `${pageName}?_inline` %>"></script>
+</body>
+</html>

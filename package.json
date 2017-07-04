@@ -24,6 +24,7 @@
 		"demo:auto-plugin": "cd demo/auto-plugin && rm -rf dist && rm -rf dist-js-prod && webpack && webpack -p --output-path dist-js-prod && cd ../../",
 		"demo:config-resource": "cd demo/config-resource && rm -rf dist-js && rm -rf dist-js-prod && rm -rf dist-template && rm -rf dist &&  webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
 		"demo:out-html": "cd demo/out-html && rm -rf dist && webpack && cd ../../",
+		"demo:issue6": "cd demo/issue6 && rm -rf dist && webpack && cd ../../",
 		"demo:use-template": "cd demo/use-template && rm -rf dist && webpack && cd ../../",
 		"demo:use-template-complier": "cd demo/use-template-complier && rm -rf dist && webpack && cd ../../",
 		"demo:watch-template-complier": "cd demo/use-template-complier && rm -rf dist && webpack -w && cd ../../",
@@ -35,7 +36,7 @@
 		"demo:pre-post-entrys": "cd demo/pre-post-entrys && rm -rf dist && webpack && cd ../../",
 		"demo:hmr": "cd demo/hmr && webpack-dev-server --hot",
 		"demo:load-local-file": "cd demo/load-local-file && rm -rf dist && rm -rf dist-prod && webpack && webpack -p --output-path dist-prod --config webpack-prod.config.js && cd ../../",
-		"demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:out-html && npm run demo:use-template && npm run demo:use-template-complier && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && npm run demo:relative-path && npm run demo:relative-path-public-path && cd ../../",
+		"demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:issue6 && npm run demo:out-html && npm run demo:use-template && npm run demo:use-template-complier && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && npm run demo:relative-path && npm run demo:relative-path-public-path && cd ../../",
 		"test": "node test.js"
 	},
 	"license": "ISC",
