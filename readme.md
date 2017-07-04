@@ -456,4 +456,14 @@ This plugin takes into account both **development** environment and **production
 - [resume](https://github.com/gwuhaolin/resume) my resume
 - [remd](https://github.com/gwuhaolin/remd) fast react markdown component
 - [use template compiler to pre-translate template](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template-complier)
+- [webpack原理与实战](https://github.com/gwuhaolin/blog/issues/4)
+- [webpack2 终极优化](https://github.com/gwuhaolin/blog/issues/2)
+- [使用模版引擎预处理模版](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template-complier)
+- [使用HTML模版配置资源注入到HTML](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)
+- [在webpack里直接通过JS配置资源注入到HTML](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-resource)
+- [管理多个单页应用](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)
+- [从JS中提取出CSS](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
+- [直接注入本地文件](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/load-local-file)
+- [设置PublicPath](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/public-path)
+- [编辑HTML模版时，监听模式下会自动编译和刷新](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/watch-template)
 
