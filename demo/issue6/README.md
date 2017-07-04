@@ -1,1 +1,1 @@
-# answer for https://github.com/gwuhaolin/web-webpack-plugin/issues/6#issuecomment-312773659
+# answer for [issue6](https://github.com/gwuhaolin/web-webpack-plugin/issues/6#issuecomment-312773659)
