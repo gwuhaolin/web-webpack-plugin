@@ -1,18 +1,26 @@
 webpackJsonp([0],{
 
-/***/ 4:
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(5);
+module.exports = __webpack_require__(8);
 
 
 /***/ }),
 
-/***/ 5:
+/***/ 8:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(9);
+alert('page signup');
+
+/***/ }),
+
+/***/ 9:
 /***/ (function(module, exports) {
 
-alert('page signup');
+// removed by extract-text-webpack-plugin
 
 /***/ })
 
-},[4]);
+},[7]);

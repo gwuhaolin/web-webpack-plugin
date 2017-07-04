@@ -60,12 +60,12 @@
 /******/ 	__webpack_require__.p = "https://cdn.cn/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 6:
+/***/ 10:
 /***/ (function(module, exports) {
 
 alert('ie_polyfill');

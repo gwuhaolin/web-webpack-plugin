@@ -1,1 +1,1 @@
-webpackJsonp([2],[function(e,n,o){e.exports=o(1)},function(e,n){alert("page home")}],[0]);
+webpackJsonp([2],[function(n,o,e){n.exports=e(1)},function(n,o,e){e(2),alert("page home")},function(n,o){}],[0]);
