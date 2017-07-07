@@ -453,6 +453,7 @@ This plugin takes into account both **development** environment and **production
 
 # In practice
 - [redemo](https://github.com/gwuhaolin/redemo) elegant react demo component
+- [stickylist](https://github.com/gwuhaolin/stickylist) react sticky header listview component
 - [resume](https://github.com/gwuhaolin/resume) my resume
 - [remd](https://github.com/gwuhaolin/remd) fast react markdown component
 - [use template compiler to pre-translate template](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template-complier)
