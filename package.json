@@ -1,6 +1,6 @@
 {
 	"name": "web-webpack-plugin",
-	"version": "1.8.4",
+	"version": "1.8.5",
 	"description": "web plugin for webpack, alternatives for html-webpack-plugin, use HTML as entry",
 	"keywords": [
 		"webpack",
@@ -36,7 +36,7 @@
 		"demo:pre-post-entrys": "cd demo/pre-post-entrys && rm -rf dist && webpack && cd ../../",
 		"demo:hmr": "cd demo/hmr && webpack-dev-server --hot",
 		"demo:load-local-file": "cd demo/load-local-file && rm -rf dist && rm -rf dist-prod && webpack && webpack -p --output-path dist-prod --config webpack-prod.config.js && cd ../../",
-		"demo": "npm run demo:auto-plugin && npm run demo:config-resource && npm run demo:issue6 && npm run demo:out-html && npm run demo:use-template && npm run demo:use-template-complier && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && npm run demo:relative-path && npm run demo:relative-path-public-path && cd ../../",
+		"demo": "npm run demo:auto-plugin && npm run demo:load-local-file && npm run demo:config-resource && npm run demo:issue6 && npm run demo:out-html && npm run demo:use-template && npm run demo:use-template-complier && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && npm run demo:relative-path && npm run demo:relative-path-public-path && cd ../../",
 		"test": "node test.js"
 	},
 	"license": "ISC",
