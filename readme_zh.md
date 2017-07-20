@@ -427,7 +427,18 @@ module.exports = {
 └── index.html
 ```
  
- 
+## 压缩输出的HTML [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/minify-html)
+`WebPlugin` 和 `AutoWebPlugin` 支持 `htmlMinify` 选项去配置压缩输出HTML的规则，规则如下：
+- 如果设置了`htmlMinify`选项：
+	- 如果`htmlMinify`是`true`, 使用内置的HTML压缩函数去压缩输出的HTML（只会压缩HTML，不会压缩JS和CSS）
+	- 如果`htmlMinify`是`false`, 使用内置的HTML处理函数去输出让人看上去舒服的HTML
+	- 如果`htmlMinify`是一个`function`,使用你提供的函数`function(orgHTMLString)=>minifyHTMLString`去处理
+- 如果没设置`htmlMinify`选项：
+	- 如果当前环境是`production`, 使用内置的HTML压缩函数去压缩输出的HTML（只会压缩HTML，不会压缩JS和CSS）
+  - 如果当前环境不是`production`, 使用内置的HTML处理函数去输出让人看上去舒服的HTML
+  
+  
+
 # 区分环境
 这个插件会考虑 **开发环境** 和 **生产环境** 两种情况。有且仅当`process.env.NODE_ENV = production`是才认为当前环境是 **生产环境**，其它的都认为是开发环境。
 `webpack -p` 参数会通过 DefinePlugin 定义 `NODE_ENV=production`。

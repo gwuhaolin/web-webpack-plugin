@@ -444,8 +444,16 @@ module.exports = {
 └── index.html
 ``` 
  
-
- 
+## minify output html [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/minify-html)
+`WebPlugin` and `AutoWebPlugin` support `htmlMinify` options to minify output html use the following rules:
+- if `htmlMinify` is set
+	- if `htmlMinify` is `true`, builtin html minify function will used to minify output html(minify HTML only，not CSS or JS)
+	- if `htmlMinify` is `false`, builtin html pretty function will used to output human read friendly html
+	- if `htmlMinify` is a `function`,use this function `function(orgHTMLString)=>minifyHTMLString` to minify html
+- if `htmlMinify` is missing(`undefined`)
+	- if environment is `production`, builtin html minify function will used to minify output html(minify HTML only，not CSS or JS)
+  - if environment is not `production`, builtin html pretty function will used to output human read friendly html
+  
 # Distinguish the environment
 This plugin takes into account both **development** environment and **production** environment. And only if `process.env.NODE_ENV = production` current environment is **production** environment, others are considered to be development environment.
 `webpack -p` will use DefinePlugin define `NODE_ENV=production`。

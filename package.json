@@ -1,6 +1,6 @@
 {
 	"name": "web-webpack-plugin",
-	"version": "1.8.5",
+	"version": "1.9.0",
 	"description": "web plugin for webpack, alternatives for html-webpack-plugin, use HTML as entry",
 	"keywords": [
 		"webpack",
@@ -26,6 +26,7 @@
 		"demo:out-html": "cd demo/out-html && rm -rf dist && webpack && cd ../../",
 		"demo:issue6": "cd demo/issue6 && rm -rf dist && webpack && cd ../../",
 		"demo:use-template": "cd demo/use-template && rm -rf dist && webpack && cd ../../",
+		"demo:minify-html": "cd demo/minify-html && rm -rf dist && webpack && cd ../../",
 		"demo:use-template-complier": "cd demo/use-template-complier && rm -rf dist && webpack && cd ../../",
 		"demo:watch-template-complier": "cd demo/use-template-complier && rm -rf dist && webpack -w && cd ../../",
 		"demo:watch-template": "cd demo/watch-template && rm -rf dist && webpack -w && cd ../../",
@@ -36,7 +37,7 @@
 		"demo:pre-post-entrys": "cd demo/pre-post-entrys && rm -rf dist && webpack && cd ../../",
 		"demo:hmr": "cd demo/hmr && webpack-dev-server --hot",
 		"demo:load-local-file": "cd demo/load-local-file && rm -rf dist && rm -rf dist-prod && webpack && webpack -p --output-path dist-prod --config webpack-prod.config.js && cd ../../",
-		"demo": "npm run demo:auto-plugin && npm run demo:load-local-file && npm run demo:config-resource && npm run demo:issue6 && npm run demo:out-html && npm run demo:use-template && npm run demo:use-template-complier && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && npm run demo:relative-path && npm run demo:relative-path-public-path && cd ../../",
+		"demo": "npm run demo:auto-plugin && npm run demo:load-local-file && npm run demo:minify-html && npm run demo:config-resource && npm run demo:issue6 && npm run demo:out-html && npm run demo:use-template && npm run demo:use-template-complier && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && npm run demo:relative-path && npm run demo:relative-path-public-path && cd ../../",
 		"test": "node test.js"
 	},
 	"license": "ISC",
@@ -48,11 +49,12 @@
 	"devDependencies": {
 		"css-loader": "^0.28.4",
 		"ejs": "^2.5.6",
-		"eslint": "^4.1.1",
-		"extract-text-webpack-plugin": "^3.0.0-beta.3",
+		"eslint": "^4.2.0",
+		"extract-text-webpack-plugin": "^3.0.0",
 		"file-loader": "^0.11.2",
-		"husky": "^0.14.1",
+		"html-minifier": "^3.5.2",
+		"husky": "^0.14.3",
 		"style-loader": "^0.18.2",
-		"webpack-dev-server": "^2.5.0"
+		"webpack-dev-server": "^2.5.1"
 	}
 }
