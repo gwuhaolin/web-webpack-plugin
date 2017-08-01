@@ -1,6 +1,6 @@
 {
 	"name": "web-webpack-plugin",
-	"version": "1.9.0",
+	"version": "1.9.1",
 	"description": "web plugin for webpack, alternatives for html-webpack-plugin, use HTML as entry",
 	"keywords": [
 		"webpack",
@@ -48,13 +48,13 @@
 	},
 	"devDependencies": {
 		"css-loader": "^0.28.4",
-		"ejs": "^2.5.6",
-		"eslint": "^4.2.0",
+		"ejs": "^2.5.7",
+		"eslint": "^4.3.0",
 		"extract-text-webpack-plugin": "^3.0.0",
 		"file-loader": "^0.11.2",
-		"html-minifier": "^3.5.2",
+		"html-minifier": "^3.5.3",
 		"husky": "^0.14.3",
 		"style-loader": "^0.18.2",
-		"webpack-dev-server": "^2.5.1"
+		"webpack-dev-server": "^2.6.1"
 	}
 }
