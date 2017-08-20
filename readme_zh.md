@@ -12,8 +12,6 @@ const { WebPlugin, AutoWebPlugin } = require('web-webpack-plugin');
 ```
 
 # 功能列表
-
-
 ## 输出html文件 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/out-html)
 
 **webpack配置**
@@ -59,7 +57,6 @@ module.exports = {
 
 
 ## 使用html模版 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)
-
 **webpack配置**
 ```js
 module.exports = {
@@ -134,10 +131,9 @@ module.exports = {
 - `_inline` 把该资源的内容潜入到html里
 - `_ie` 只有IE浏览器才需要引入的资源，通过 `[if IE]>resource<![endif]` 注释实现
 
+
 配置这些属性的方式有两种：
-
 ### 在html模版里配置
-
 **webpack配置**
 ```js
 module.exports = {
@@ -175,7 +171,6 @@ module.exports = {
 [输出的html文件](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-template/index.html)
 
 ### 在`webpack.config.js`里配置
-
 **webpack配置**
 ```js
 module.exports = {
@@ -204,6 +199,8 @@ module.exports = {
 ```
 [输出的html文件](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-js/index.html)
 
+### 给 HTML 标签注入属性 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-html-attribute)
+对于其它的非 **_** 开头的属性，会认为这个属性是要被当作 HTML 标签属性注入到生产的 HTML 文件里去的，例如在 script 资源后带上属性 `?crossorigin=anonymous` 输出的 HTML 将会是 `<script src="B.js" crossorigin="anonymous"></script>`
 
 
 ## 自动探测html入口 [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)

@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<!--load a chunk file config and output in webpack-->
+	<script src="B.js" crossorigin="anonymous" data-group="abc"></script>
+	<!--load a local reset style file direct without local var webpack-->
+	<style rel="stylesheet" charset="x-UTF-16LE-BOM" data-group="abc">body {
+    background-color: rebeccapurple;
+}</style>
+	<!--load a local google analyze file direct without local var webpack-->
+	<script async="" data-group="123" src="google-analyze.js"></script>
+</head>
+<body>
+<script src="A.js"></script>
+<footer>web-webpack-plugin</footer>
+
+</body>
+</html>

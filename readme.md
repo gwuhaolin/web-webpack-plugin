@@ -18,8 +18,6 @@ const { WebPlugin, AutoWebPlugin } = require('web-webpack-plugin');
 
 
 # Feature
-
-
 ## output html file [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/out-html)
 **webpack config**
 ```js
@@ -139,9 +137,7 @@ every resource required by html,it can config some attribute as below:
 - `_ie` resource only required IE browser,to achieve by `[if IE]>resource<![endif]` comment
 
 there has two way to config resource attribute:
-
 ### config in html template
-
 **webpack config**
 ```js
 module.exports = {
@@ -179,7 +175,6 @@ module.exports = {
 [output html file](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-template/index.html)
 
 ### config in `webpack.config.js`
-
 **webpack config**
 ```js
 module.exports = {
@@ -208,8 +203,8 @@ module.exports = {
 ```
 [output html file](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-js/index.html)
 
-
-
+### inject attr for HTML tag [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-html-attribute)
+other attribute in config without name start with **_** will be treat as attribute for HTML tag in output HTML file. e.g if a script resource with query `?crossorigin=anonymous` will lead to output HTML be `<script src="B.js" crossorigin="anonymous"></script>`.
 
 ## auto detect html entry [demo](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)
 `AutoWebPlugin` plugin can find all page entry in an directory, then auto config an `WebPlugin` for every page to output an html file, you can use it as below:
