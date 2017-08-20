@@ -17,7 +17,8 @@ module.exports = {
 			filename: 'index.html',
 			requires: {
 				'ie-polyfill': {
-					_ie: true
+					_ie: true,
+					crossorigin: 'anonymous'
 				},
 				'inline': {
 					_inline: true,
