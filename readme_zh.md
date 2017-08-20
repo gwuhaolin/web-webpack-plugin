@@ -450,6 +450,7 @@ module.exports = {
 - [webpack2 终极优化](https://github.com/gwuhaolin/blog/issues/2)
 - [使用模版引擎预处理模版](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template-complier)
 - [使用HTML模版配置资源注入到HTML](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/use-template)
+- [给HTML标签注入属性](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-html-attribute)
 - [在webpack里直接通过JS配置资源注入到HTML](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/config-resource)
 - [管理多个单页应用](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/auto-plugin)
 - [从JS中提取出CSS](https://github.com/gwuhaolin/web-webpack-plugin/tree/master/demo/extract-css)
