@@ -1,6 +1,10 @@
 # web-webpack-plugin 
 一个很好的[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)替代品, 可以使webpack以HTML为入口和方便的管理多个页面。
 
+本插件主要提供以下2个功能，在我写的[《深入浅出 Webpack》](http://webpack.wuhaolin.cn)中有详细介绍：
+- [为单页应用生成 HTML](http://webpack.wuhaolin.cn/3实战/3.7为单页应用生成HTML.html)
+- [管理多个单页应用](http://webpack.wuhaolin.cn/3实战/3.8管理多个单页应用.html)
+
 web应用需要加载的资源都需要在 webpack 的 entry里配置，最后输出对应的代码块，但是要让web应用运行起来还需要通过html加载这些资源放在浏览器里运行。webpack只做了资源打包的工作还缺少把这些加载到html里运行的功能，本插件补足了这个功能。
 
 # 安装
