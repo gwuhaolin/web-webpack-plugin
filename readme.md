@@ -22,19 +22,19 @@ const { WebPlugin, AutoWebPlugin } = require('web-webpack-plugin');
 **webpack config**
 ```js
 module.exports = {
-    entry: {
-        A: './a',
-        B: './b',
-    },
-    plugins: [
-        new WebPlugin({
-            // file name or full path for output file, required.
-            // pay attention not to duplication of name,as is will cover other file
-            filename: 'index.html',
-            // this html's requires entry,must be an array.dependent resource will inject into html use the order entry in array.
-            requires: ['A', 'B'],
-        }),
-    ]
+  entry: {
+    A: './a',
+    B: './b',
+  },
+  plugins: [
+    new WebPlugin({
+      // file name or full path for output file, required.
+      // pay attention not to duplication of name,as is will cover other file
+      filename: 'index.html',
+      // this html's requires entry,must be an array.dependent resource will inject into html use the order entry in array.
+      requires: ['A', 'B'],
+    }),
+  ]
 };
 ```
 
@@ -45,7 +45,7 @@ will output an file named `index.html`,this file will auto load js file generate
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 </head>
 <body>
 <script src="A.js"></script>
@@ -67,18 +67,18 @@ will output an file named `index.html`,this file will auto load js file generate
 **webpack config**
 ```js
 module.exports = {
-    entry: {
-        A: './a',
-        B: './b',
-    },
-    plugins: [
-        new WebPlugin({
-            filename: 'index.html',
-            // html template file path（full path relative to webpack.config.js）
-            template: './template.html',
-            requires: ['A', 'B'],
-        }),
-    ]
+  entry: {
+    A: './a',
+    B: './b',
+  },
+  plugins: [
+    new WebPlugin({
+      filename: 'index.html',
+      // html template file path（full path relative to webpack.config.js）
+      template: './template.html',
+      requires: ['A', 'B'],
+    }),
+  ]
 };
 ```
 
@@ -87,13 +87,13 @@ module.exports = {
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <!--load a chunk file config and output in webpack-->
-    <script src="B"></script>
-    <!--load a local reset style file direct without local var webpack-->
-    <link rel="stylesheet" href="./reset.min.css?_inline">
-    <!--load a local google analyze file direct without local var webpack-->
-    <script src="./google-analyze.js"></script>
+  <meta charset="UTF-8">
+  <!--load a chunk file config and output in webpack-->
+  <script src="B"></script>
+  <!--load a local reset style file direct without local var webpack-->
+  <link rel="stylesheet" href="./reset.min.css?_inline">
+  <!--load a local google analyze file direct without local var webpack-->
+  <script src="./google-analyze.js"></script>
 </head>
 <body>
 <!--SCRIPT-->
@@ -103,21 +103,21 @@ module.exports = {
 ```
 - use `<script src="B"></script>` in html template to load required entry, the `B` in `src="B"` means entry name config in `webpack.config.js`
 - comment `<!--SCRIPT-->` means a inject position ,except for resource load by `<script src></script>` left required resource config in `WebPlugin's requires option`. if there has no `<!--SCRIPT-->` in html template left required script will be inject ad end of `body` tag.
-    
+  
 **output html**
 ```html
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <!--load a chunk file config and output in webpack-->
-    <script src="B.js"></script>
-    <!--load a local reset style file direct without local var webpack-->
-    <style>body {
-        background-color: rebeccapurple;
-    }</style>
-    <!--load a local google analyze file direct without local var webpack-->
-    <script src="google-analyze.js"></script>
+  <meta charset="UTF-8">
+  <!--load a chunk file config and output in webpack-->
+  <script src="B.js"></script>
+  <!--load a local reset style file direct without local var webpack-->
+  <style>body {
+    background-color: rebeccapurple;
+  }</style>
+  <!--load a local google analyze file direct without local var webpack-->
+  <script src="google-analyze.js"></script>
 </head>
 <body>
 <script src="A.js"></script>
@@ -125,7 +125,7 @@ module.exports = {
 
 </body>
 </html>
-```    
+```  
 
 
 
@@ -141,18 +141,18 @@ there has two way to config resource attribute:
 **webpack config**
 ```js
 module.exports = {
-    entry: {
-        'ie-polyfill': './ie-polyfill',
-        inline: './inline',
-        dev: './dev',
-        googleAnalytics: './google-analytics',
-    },
-    plugins: [
-        new WebPlugin({
-            filename: 'index.html',
-            template: './template.html'
-        }),
-    ]
+  entry: {
+    'ie-polyfill': './ie-polyfill',
+    inline: './inline',
+    dev: './dev',
+    googleAnalytics: './google-analytics',
+  },
+  plugins: [
+    new WebPlugin({
+      filename: 'index.html',
+      template: './template.html'
+    }),
+  ]
 };
 ```
 
@@ -161,9 +161,9 @@ module.exports = {
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <script src="inline?_inline"></script>
-    <script src="ie-polyfill?_ie"></script>
+  <meta charset="UTF-8">
+  <script src="inline?_inline"></script>
+  <script src="ie-polyfill?_ie"></script>
 </head>
 <body>
 <script src="dev?_dev"></script>
@@ -178,27 +178,27 @@ module.exports = {
 **webpack config**
 ```js
 module.exports = {
-    plugins: [
-        new WebPlugin({
-            filename: 'index.html',
-            requires: {
-                'ie-polyfill': {
-                    _ie: true
-                },
-                'inline': {
-                    _inline: true,
-                    _dist: true
-                },
-                'dev': {
-                    _dev: true
-                },
-                //load a local google analyze file direct without local var webpack
-                './google-analytics.js': {
-                    _dist: true
-                }
-            }
-        }),
-    ]
+  plugins: [
+    new WebPlugin({
+      filename: 'index.html',
+      requires: {
+        'ie-polyfill': {
+          _ie: true
+        },
+        'inline': {
+          _inline: true,
+          _dist: true
+        },
+        'dev': {
+          _dev: true
+        },
+        //load a local google analyze file direct without local var webpack
+        './google-analytics.js': {
+          _dist: true
+        }
+      }
+    }),
+  ]
 };
 ```
 [output html file](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-js/index.html)
@@ -247,8 +247,8 @@ const autoPlugin = new AutoWebPlugin(
 	// CommonsChunkPlugin options for all pages entry find by AutoWebPlugin.
 	// if this is null will not do commonsChunk action
 	commonsChunk: {
-	    name: 'common',// name prop is require,output filename
-	    minChunks: 2,// come from CommonsChunkPlugin
+	  name: 'common',// name prop is require,output filename
+	  minChunks: 2,// come from CommonsChunkPlugin
 	},
 	
 	// {Array} pre append to all page's entry
@@ -327,7 +327,7 @@ In the complex case,You can set the template to a function, as follows using the
 new AutoWebPlugin('./src/', {
    // Template files used by all pages
    template: (pageName) => {
-        return path.resolve('./src',pageName,'index.html');
+    return path.resolve('./src',pageName,'index.html');
    },
 	}
 );
@@ -351,31 +351,31 @@ Separated css code, the rest of the things to me, I will automatically deal with
 ```js
 // webpack.config.js
 module.exports = {
-    module: {
-        loaders: [
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
-                    loader: 'css-loader'
-                })
-            }
-        ]
-    },
-    entry: {
-        1: './1',
-        2: './2',
-        3: './3',
-        4: './4',
-    },
-    plugins: [
-        new ExtractTextPlugin('[name].css'),
-        new WebPlugin({
-            filename: 'index.html',
-            template: './template.html',
-            requires: ['1', '2', '3', '4']
-        }),
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader'
+        })
+      }
     ]
+  },
+  entry: {
+    1: './1',
+    2: './2',
+    3: './3',
+    4: './4',
+  },
+  plugins: [
+    new ExtractTextPlugin('[name].css'),
+    new WebPlugin({
+      filename: 'index.html',
+      template: './template.html',
+      requires: ['1', '2', '3', '4']
+    }),
+  ]
 };
 ```
 
@@ -384,12 +384,12 @@ module.exports = {
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="1">
-    <link rel="stylesheet" href="2?_inline">
-    <link rel="stylesheet" href="3?_ie">
-    <script src="1"></script>
-    <!--STYLE-->
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="1">
+  <link rel="stylesheet" href="2?_inline">
+  <link rel="stylesheet" href="3?_ie">
+  <script src="1"></script>
+  <!--STYLE-->
 </head>
 <body>
 <script src="2"></script>
@@ -404,18 +404,18 @@ module.exports = {
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="1.css">
-    <style>
-    /**2.css**/
-    body {
-        background-color: rebeccapurple;
-    }</style>
-    <!--[if IE]>
-    <link rel="stylesheet" href="3.css">
-    <![endif]-->
-    <script src="1.js"></script>
-    <link rel="stylesheet" href="4.css">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="1.css">
+  <style>
+  /**2.css**/
+  body {
+    background-color: rebeccapurple;
+  }</style>
+  <!--[if IE]>
+  <link rel="stylesheet" href="3.css">
+  <![endif]-->
+  <script src="1.js"></script>
+  <link rel="stylesheet" href="4.css">
 </head>
 <body>
 <script src="2.js"></script>

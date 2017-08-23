@@ -17,18 +17,18 @@ const { WebPlugin, AutoWebPlugin } = require('web-webpack-plugin');
 **webpack配置**
 ```js
 module.exports = {
-    entry: {
-        A: './a',
-        B: './b',
-    },
-    plugins: [
-        new WebPlugin({
-            // 输出的html文件名称或路径，必填，注意不要重名，重名会覆盖相互文件。
-            filename: 'index.html',
-            // 该html文件依赖的entry，必须是一个数组。依赖的资源的注入顺序按照数组的顺序。
-            requires: ['A', 'B'],
-        }),
-    ]
+  entry: {
+    A: './a',
+    B: './b',
+  },
+  plugins: [
+    new WebPlugin({
+      // 输出的html文件名称或路径，必填，注意不要重名，重名会覆盖相互文件。
+      filename: 'index.html',
+      // 该html文件依赖的entry，必须是一个数组。依赖的资源的注入顺序按照数组的顺序。
+      requires: ['A', 'B'],
+    }),
+  ]
 };
 ```
 
@@ -39,7 +39,7 @@ module.exports = {
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 </head>
 <body>
 <script src="A.js"></script>
@@ -60,18 +60,18 @@ module.exports = {
 **webpack配置**
 ```js
 module.exports = {
-    entry: {
-        A: './a',
-        B: './b',
-    },
-    plugins: [
-        new WebPlugin({
-            filename: 'index.html',
-            // html模版文件路径（相对于webpack.config.js的完整路径）
-            template: './template.html',
-            requires: ['A', 'B'],
-        }),
-    ]
+  entry: {
+    A: './a',
+    B: './b',
+  },
+  plugins: [
+    new WebPlugin({
+      filename: 'index.html',
+      // html模版文件路径（相对于webpack.config.js的完整路径）
+      template: './template.html',
+      requires: ['A', 'B'],
+    }),
+  ]
 };
 ```
 
@@ -82,13 +82,13 @@ module.exports = {
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <!--加载一个在webpack里配置输出的chunk文件-->
-    <script src="B"></script>
-    <!--直接加载一个本地的文件的原内容，不走webpack的打包逻辑-->
-    <link rel="stylesheet" href="./reset.min.css?_inline">
-    <!--直接加载一个本地的文件的原内容，不走webpack的打包逻辑-->
-    <script src="./google-analyze.js"></script>
+  <meta charset="UTF-8">
+  <!--加载一个在webpack里配置输出的chunk文件-->
+  <script src="B"></script>
+  <!--直接加载一个本地的文件的原内容，不走webpack的打包逻辑-->
+  <link rel="stylesheet" href="./reset.min.css?_inline">
+  <!--直接加载一个本地的文件的原内容，不走webpack的打包逻辑-->
+  <script src="./google-analyze.js"></script>
 </head>
 <body>
 <!--SCRIPT-->
@@ -98,21 +98,21 @@ module.exports = {
 ```
 - 在html模版里通过`<script src="B"></script>` 引入需要的entry，`src="B"` 中的B为chunk配置的名称
 - 注释`<!--SCRIPT-->` 代表除开通过`<script src></script>`引入的资源外，在 requires 里配置的剩下的依赖的资源应该被注入的地方，如果模版没有出现`<!--SCRIPT-->`就放在`body`标签的最后
-    
+  
 **输出的html:**
 ```html
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <!--加载一个在webpack里配置输出的chunk文件-->
-    <script src="B.js"></script>
-    <!--直接加载一个本地的文件的原内容，不走webpack的打包逻辑-->
-    <style>body {
-        background-color: rebeccapurple;
-    }</style>
-    <!--直接加载一个本地的文件的原内容，不走webpack的打包逻辑-->
-    <script src="google-analyze.js"></script>
+  <meta charset="UTF-8">
+  <!--加载一个在webpack里配置输出的chunk文件-->
+  <script src="B.js"></script>
+  <!--直接加载一个本地的文件的原内容，不走webpack的打包逻辑-->
+  <style>body {
+    background-color: rebeccapurple;
+  }</style>
+  <!--直接加载一个本地的文件的原内容，不走webpack的打包逻辑-->
+  <script src="google-analyze.js"></script>
 </head>
 <body>
 <script src="A.js"></script>
@@ -120,7 +120,7 @@ module.exports = {
 
 </body>
 </html>
-```    
+```  
 
 
 
@@ -137,18 +137,18 @@ module.exports = {
 **webpack配置**
 ```js
 module.exports = {
-    entry: {
-        'ie-polyfill': './ie-polyfill',
-        inline: './inline',
-        dev: './dev',
-        googleAnalytics: './google-analytics',
-    },
-    plugins: [
-        new WebPlugin({
-            filename: 'index.html',
-            template: './template.html'
-        }),
-    ]
+  entry: {
+    'ie-polyfill': './ie-polyfill',
+    inline: './inline',
+    dev: './dev',
+    googleAnalytics: './google-analytics',
+  },
+  plugins: [
+    new WebPlugin({
+      filename: 'index.html',
+      template: './template.html'
+    }),
+  ]
 };
 ```
 
@@ -157,9 +157,9 @@ module.exports = {
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <script src="inline?_inline"></script>
-    <script src="ie-polyfill?_ie"></script>
+  <meta charset="UTF-8">
+  <script src="inline?_inline"></script>
+  <script src="ie-polyfill?_ie"></script>
 </head>
 <body>
 <script src="dev?_dev"></script>
@@ -174,27 +174,27 @@ module.exports = {
 **webpack配置**
 ```js
 module.exports = {
-    plugins: [
-        new WebPlugin({
-            filename: 'index.html',
-            requires: {
-                'ie-polyfill': {
-                    _ie: true
-                },
-                'inline': {
-                    _inline: true,
-                    _dist: true
-                },
-                'dev': {
-                    _dev: true
-                },
-                //load a local google analyze file direct without local var webpack
-                './google-analytics.js': {
-                    _dist: true
-                }
-            }
-        }),
-    ]
+  plugins: [
+    new WebPlugin({
+      filename: 'index.html',
+      requires: {
+        'ie-polyfill': {
+          _ie: true
+        },
+        'inline': {
+          _inline: true,
+          _dist: true
+        },
+        'dev': {
+          _dev: true
+        },
+        //load a local google analyze file direct without local var webpack
+        './google-analytics.js': {
+          _dist: true
+        }
+      }
+    }),
+  ]
 };
 ```
 [输出的html文件](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/demo/config-resource/dist-js/index.html)
@@ -237,8 +237,8 @@ const autoPlugin = new AutoWebPlugin(
 		// 提取出所有页面公共的代码,如果为空就不做提取操作。
 		// 透传给 `CommonsChunkPlugin` 插件的属性
 		commonsChunk: {
-		     name: 'common',// 必填属性,输出的文件名称
-		     minChunks: 2,// 来自 CommonsChunkPlugin 插件
+		   name: 'common',// 必填属性,输出的文件名称
+		   minChunks: 2,// 来自 CommonsChunkPlugin 插件
 		},
 		
 		// 在所有入口页面的entry前插入
@@ -311,10 +311,10 @@ AutoWebPlugin插件找出了`./src/`目录下所有的目录 `home login signup`
 **webpack配置**
 ```js
 new AutoWebPlugin('./src/', {
-   		// 所有页面采用的模版文件
-      template: (pageName) => {
-         return path.resolve('./src',pageName,'index.html');
-      },
+    // 所有页面采用的模版文件
+    template: (pageName) => {
+     return path.resolve('./src',pageName,'index.html');
+    },
    }
 );
 ```
@@ -336,31 +336,31 @@ entry 属性 和 template 类似，同样也支持回调函数应对复杂情况
 ```js
 // webpack.config.js
 module.exports = {
-    module: {
-        loaders: [
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
-                    loader: 'css-loader'
-                })
-            }
-        ]
-    },
-    entry: {
-        1: './1',
-        2: './2',
-        3: './3',
-        4: './4',
-    },
-    plugins: [
-        new ExtractTextPlugin('[name].css'),
-        new WebPlugin({
-            filename: 'index.html',
-            template: './template.html',
-            requires: ['1', '2', '3', '4']
-        }),
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader'
+        })
+      }
     ]
+  },
+  entry: {
+    1: './1',
+    2: './2',
+    3: './3',
+    4: './4',
+  },
+  plugins: [
+    new ExtractTextPlugin('[name].css'),
+    new WebPlugin({
+      filename: 'index.html',
+      template: './template.html',
+      requires: ['1', '2', '3', '4']
+    }),
+  ]
 };
 ```
 
@@ -369,12 +369,12 @@ module.exports = {
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="1">
-    <link rel="stylesheet" href="2?_inline">
-    <link rel="stylesheet" href="3?_ie">
-    <script src="1"></script>
-    <!--STYLE-->
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="1">
+  <link rel="stylesheet" href="2?_inline">
+  <link rel="stylesheet" href="3?_ie">
+  <script src="1"></script>
+  <!--STYLE-->
 </head>
 <body>
 <script src="2"></script>
@@ -389,18 +389,18 @@ module.exports = {
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="1.css">
-    <style>
-    /**2.css**/
-    body {
-        background-color: rebeccapurple;
-    }</style>
-    <!--[if IE]>
-    <link rel="stylesheet" href="3.css">
-    <![endif]-->
-    <script src="1.js"></script>
-    <link rel="stylesheet" href="4.css">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="1.css">
+  <style>
+  /**2.css**/
+  body {
+    background-color: rebeccapurple;
+  }</style>
+  <!--[if IE]>
+  <link rel="stylesheet" href="3.css">
+  <![endif]-->
+  <script src="1.js"></script>
+  <link rel="stylesheet" href="4.css">
 </head>
 <body>
 <script src="2.js"></script>
