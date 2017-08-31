@@ -11,6 +11,7 @@ const autoPlugin = new AutoWebPlugin('./pages', {
 		});
 		return ejs.render(ejsTemplate, {
 			title: pageName,
+			filename: './template.ejs'
 		});
 	}
 });
