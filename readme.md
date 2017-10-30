@@ -8,6 +8,10 @@
  
 A good alternatives for [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), can make webpack use HTML as entry and handle multi pages.
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/3bvxELAxnq8r4wheFyRkED8U/gwuhaolin/web-webpack-plugin'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/3bvxELAxnq8r4wheFyRkED8U/gwuhaolin/web-webpack-plugin.svg' />
+</a>
+
 # Install
 ```bash
 npm i web-webpack-plugin --save-dev
