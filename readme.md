@@ -8,6 +8,7 @@
  
 A good alternatives for [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), can make webpack use HTML as entry and handle multi pages.
 
+
 # Install
 ```bash
 npm i web-webpack-plugin --save-dev
