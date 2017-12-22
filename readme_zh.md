@@ -1,6 +1,16 @@
 # web-webpack-plugin 
 一个很好的[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)替代品, 可以使webpack以HTML为入口和方便的管理多个页面。
 
+
+<p align='center'>
+	<div>想全面学习Webpack？[在线阅读全书](http://webpack.wuhaolin.cn/)</div>
+  <a href='http://webpack.wuhaolin.cn/'>
+    <img src='http://ou8vcvyuy.bkt.clouddn.com/dive-into-webpack.png' width='306px' height='411px'/>
+  </a>
+</p> 
+
+
+
 本插件主要提供以下2个功能，在我写的[《深入浅出 Webpack》](http://webpack.wuhaolin.cn)中有详细介绍：
 - [为单页应用生成 HTML](http://webpack.wuhaolin.cn/3实战/3.7为单页应用生成HTML.html)
 - [管理多个单页应用](http://webpack.wuhaolin.cn/3实战/3.8管理多个单页应用.html)
