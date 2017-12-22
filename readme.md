@@ -7,14 +7,15 @@
 ### [中文文档](https://github.com/gwuhaolin/web-webpack-plugin/blob/master/readme_zh.md)
 
 
+想全面学习Webpack？试试它：
 <p align='center'>
-	<div>想全面学习Webpack？[在线阅读全书](http://webpack.wuhaolin.cn/)</div>
   <a href='http://webpack.wuhaolin.cn/'>
     <img src='http://ou8vcvyuy.bkt.clouddn.com/dive-into-webpack.png' width='306px' height='411px'/>
   </a>
 </p> 
+[在线阅读全书](http://webpack.wuhaolin.cn/)
 
- 
+
 A good alternatives for [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), can make webpack use HTML as entry and handle multi pages.
 
 

@@ -2,13 +2,13 @@
 一个很好的[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)替代品, 可以使webpack以HTML为入口和方便的管理多个页面。
 
 
+想全面学习Webpack？试试它：
 <p align='center'>
-	<div>想全面学习Webpack？[在线阅读全书](http://webpack.wuhaolin.cn/)</div>
   <a href='http://webpack.wuhaolin.cn/'>
     <img src='http://ou8vcvyuy.bkt.clouddn.com/dive-into-webpack.png' width='306px' height='411px'/>
   </a>
 </p> 
-
+[在线阅读全书](http://webpack.wuhaolin.cn/)
 
 
 本插件主要提供以下2个功能，在我写的[《深入浅出 Webpack》](http://webpack.wuhaolin.cn)中有详细介绍：
