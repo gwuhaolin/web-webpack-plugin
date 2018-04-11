@@ -1,6 +1,6 @@
 {
 	"name": "web-webpack-plugin",
-	"version": "1.10.2",
+	"version": "1.10.3",
 	"description": "web plugin for webpack, alternatives for html-webpack-plugin, use HTML as entry",
 	"keywords": [
 		"webpack",
