@@ -45,7 +45,7 @@
 	"dependencies": {
 		"file-type": "^7.4.0",
 		"parse5": "^3.0.3",
-		"webpack": "*"
+		"webpack": "<4"
 	},
 	"devDependencies": {
 		"css-loader": "^0.28.4",
