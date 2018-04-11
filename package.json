@@ -44,7 +44,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"file-type": "^7.4.0",
-		"parse5": "^3.0.3",
+		"parse5": "^4.0.0",
 		"webpack": "<4"
 	},
 	"devDependencies": {
