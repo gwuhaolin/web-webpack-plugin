@@ -8,10 +8,10 @@
 	background-color: blue;
 }</style>
 	<!--polyfill chunk 是用户自己配置的 不是 AutoWebPlugin 生成的，所以需要自己注入-->
-	<!--[if IE]><script src="polyfill.js"></script><![endif]-->
+	<!--[if IE]><script src="polyfill.js" crossorigin="anonymous"></script><![endif]-->
 </head>
 <body>
-<script>/******/ (function(modules) { // webpackBootstrap
+<script crossorigin="anonymous">/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
