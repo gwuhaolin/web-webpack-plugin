@@ -1,4 +1,4 @@
-# 管理多个单页应用
+# AutoWebPlugin 可以自定义输出的html文件名称
 
 `AutoWebPlugin` 可以自定义输出的html文件名称的逻辑，只需给 filename 传一个 function 即可。
 这个函数定义为：`(pageName)=> newPageName`，
