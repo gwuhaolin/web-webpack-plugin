@@ -16,5 +16,5 @@ module.exports = {
 			template: './template.html',
 			requires: ['A', 'B'],
 		}),
-	]
+	],
 };

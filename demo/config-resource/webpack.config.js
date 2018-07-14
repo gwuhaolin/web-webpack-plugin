@@ -18,20 +18,20 @@ module.exports = {
 			requires: {
 				'ie-polyfill': {
 					_ie: true,
-					crossorigin: 'anonymous'
+					crossorigin: 'anonymous',
 				},
-				'inline': {
+				inline: {
 					_inline: true,
-					_dist: true
+					_dist: true,
 				},
-				'dev': {
-					_dev: true
+				dev: {
+					_dev: true,
 				},
 				//load a local google analyze file direct without local var webpack
 				'./google-analytics.js': {
-					_dist: true
-				}
-			}
+					_dist: true,
+				},
+			},
 		}),
-	]
+	],
 };

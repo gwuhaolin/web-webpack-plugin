@@ -18,7 +18,7 @@ module.exports = {
 				return minify(orgHTML, {
 					minifyJS: true,
 				});
-			}
+			},
 		}),
-	]
+	],
 };
