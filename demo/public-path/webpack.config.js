@@ -1,30 +1,27 @@
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { WebPlugin } = require('../../index');
 
 module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-		publicPath: '//js.cdn'
+		publicPath: '//js.cdn',
 	},
 	entry: {
 		A: './a',
 		B: './b',
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.css$/,
-				loaders: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: ['css-loader'],
-				}),
+				loader: [MiniCssExtractPlugin.loader, 'css-loader'],
 			},
-		]
+		],
 	},
 	plugins: [
-		new ExtractTextPlugin({
+		new MiniCssExtractPlugin({
 			filename: '[name].css',
 		}),
 		new WebPlugin({
@@ -32,5 +29,5 @@ module.exports = {
 			template: './template.html',
 			stylePublicPath: '//css.cdn',
 		}),
-	]
+	],
 };

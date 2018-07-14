@@ -4,6 +4,7 @@
 	"description": "web plugin for webpack, alternatives for html-webpack-plugin, use HTML as entry",
 	"keywords": [
 		"webpack",
+		"webpack4",
 		"plugin",
 		"html",
 		"web",
@@ -16,12 +17,12 @@
 	"main": "index.js",
 	"author": "gwuhaolin",
 	"engines": {
-		"node": ">= 6.0.0"
+		"node": ">=6.11.5"
 	},
 	"scripts": {
 		"precommit": "eslint lib",
 		"eslint:fix": "eslint lib --fix",
-		"demo:auto-plugin": "cd demo/auto-plugin && rm -rf dist && rm -rf dist-js-prod && webpack && webpack -p --output-path dist-js-prod && cd ../../",
+		"demo:auto-plugin": "cd demo/auto-plugin && rm -rf dist && rm -rf dist-js-prod && webpack --mode development && webpack --mode production --output-path dist-js-prod && cd ../../",
 		"demo:auto-plugin-logic-filename": "cd demo/auto-plugin-logic-filename && rm -rf dist && webpack && cd ../../",
 		"demo:config-resource": "cd demo/config-resource && rm -rf dist-js && rm -rf dist-js-prod && rm -rf dist-template && rm -rf dist &&  webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
 		"demo:out-html": "cd demo/out-html && rm -rf dist && webpack && cd ../../",
@@ -44,19 +45,20 @@
 	},
 	"license": "ISC",
 	"dependencies": {
-		"file-type": "^7.4.0",
-		"parse5": "^4.0.0",
-		"webpack": "<4"
+		"file-type": "^8.1.0",
+		"parse5": "^5.0.0",
+		"webpack": "^4.16.0"
 	},
 	"devDependencies": {
-		"css-loader": "^0.28.4",
-		"ejs": "^2.5.7",
-		"eslint": "^4.13.1",
-		"extract-text-webpack-plugin": "^3.0.2",
+		"css-loader": "^1.0.0",
+		"ejs": "^2.6.1",
+		"eslint": "^5.1.0",
 		"file-loader": "^1.1.6",
-		"html-minifier": "^3.5.7",
+		"html-minifier": "^3.5.18",
 		"husky": "^0.14.3",
-		"style-loader": "^0.19.1",
-		"webpack-dev-server": "^2.9.7"
+		"mini-css-extract-plugin": "^0.4.1",
+		"style-loader": "^0.21.0",
+		"webpack-cli": "^3.0.8",
+		"webpack-dev-server": "^3.1.4"
 	}
 }

@@ -5,7 +5,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name]_[chunkhash].js',
-		publicPath: '//cdn.cn/web'
+		publicPath: '//cdn.cn/web',
 	},
 	entry: {
 		A: './a',
@@ -15,5 +15,5 @@ module.exports = {
 			filename: 'index.html',
 			template: './template.html',
 		}),
-	]
+	],
 };

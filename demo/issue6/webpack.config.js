@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const ejs = require('ejs');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { AutoWebPlugin } = require('../../index');
 
 const autoPlugin = new AutoWebPlugin('./src/', {
@@ -13,7 +13,7 @@ const autoPlugin = new AutoWebPlugin('./src/', {
 		return ejs.render(ejsTemplate, {
 			pageName,
 		});
-	}
+	},
 });
 
 module.exports = {
@@ -25,18 +25,17 @@ module.exports = {
 		polyfill: './src/polyfill',
 	}),
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: 'css-loader'
-				})
-			}
-		]
+				loader: [MiniCssExtractPlugin.loader, 'css-loader'],
+			},
+		],
 	},
 	plugins: [
-		new ExtractTextPlugin('[name].css'),
+		new MiniCssExtractPlugin({
+			filename: '[name].css',
+		}),
 		autoPlugin,
-	]
+	],
 };

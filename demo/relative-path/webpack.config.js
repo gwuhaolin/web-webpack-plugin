@@ -1,5 +1,5 @@
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { WebPlugin } = require('../../index');
 
 module.exports = {
@@ -13,13 +13,10 @@ module.exports = {
 		B: './b',
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.css$/,
-				loaders: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: ['css-loader'],
-				}),
+				loader: [MiniCssExtractPlugin.loader, 'css-loader'],
 			},
 			{
 				test: /\.(pdf)$/,
@@ -28,15 +25,15 @@ module.exports = {
 					name: 'img/[name]_[hash].[ext]',
 				},
 			},
-		]
+		],
 	},
 	plugins: [
-		new ExtractTextPlugin({
-			filename: 'css/[name].css',
+		new MiniCssExtractPlugin({
+			filename: '[name].css',
 		}),
 		new WebPlugin({
 			filename: 'html/index.html',
 			template: './template.html',
 		}),
-	]
+	],
 };

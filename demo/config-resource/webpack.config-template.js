@@ -15,7 +15,7 @@ module.exports = {
 	plugins: [
 		new WebPlugin({
 			filename: 'index.html',
-			template: './template.html'
+			template: './template.html',
 		}),
-	]
+	],
 };

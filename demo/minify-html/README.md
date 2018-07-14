@@ -1,11 +1,12 @@
-# 压缩输出的HTML
+# 压缩输出的 HTML
+
 ```js
 const { minify } = require('html-minifier');
 new WebPlugin({
-  htmlMinify: (orgHTML) => {
-  	return minify(orgHTML, {
-  		minifyJS: true,
-  	});
-  }
-})
+	htmlMinify: (orgHTML) => {
+		return minify(orgHTML, {
+			minifyJS: true,
+		});
+	},
+});
 ```
