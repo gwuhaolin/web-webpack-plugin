@@ -11,7 +11,6 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].[chunkhash].js',
-		// publicPath: 'https://cdn.cn/',
 	},
 	entry: autoWebPlugin.entry({
 		base: './src/base.ts',
