@@ -24,6 +24,7 @@
 		"eslint:fix": "eslint lib --fix",
 		"demo:auto-plugin": "cd demo/auto-plugin && rm -rf dist && rm -rf dist-js-prod && webpack --mode development && webpack --mode production --output-path dist-js-prod && cd ../../",
 		"demo:auto-plugin-logic-filename": "cd demo/auto-plugin-logic-filename && rm -rf dist && webpack && cd ../../",
+		"demo:auto-plugin-react-typescript": "cd demo/auto-plugin-react-typescript && rm -rf dist && webpack && cd ../../",
 		"demo:config-resource": "cd demo/config-resource && rm -rf dist-js && rm -rf dist-js-prod && rm -rf dist-template && rm -rf dist &&  webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
 		"demo:out-html": "cd demo/out-html && rm -rf dist && webpack && cd ../../",
 		"demo:issue6": "cd demo/issue6 && rm -rf dist && webpack && cd ../../",
@@ -40,7 +41,7 @@
 		"demo:pre-post-entrys": "cd demo/pre-post-entrys && rm -rf dist && webpack && cd ../../",
 		"demo:hmr": "cd demo/hmr && webpack-dev-server --hot",
 		"demo:load-local-file": "cd demo/load-local-file && rm -rf dist && rm -rf dist-prod && webpack && webpack -p --output-path dist-prod --config webpack-prod.config.js && cd ../../",
-		"demo": "npm run demo:auto-plugin && npm run demo:load-local-file && npm run demo:minify-html && npm run demo:config-resource && npm run demo:issue6 && npm run demo:out-html && npm run demo:use-template && npm run demo:use-template-complier && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && npm run demo:relative-path && npm run demo:relative-path-public-path && npm run demo:config-html-attribute && cd ../../",
+		"demo": "npm run demo:auto-plugin-react-typescript && npm run demo:auto-plugin && npm run demo:load-local-file && npm run demo:minify-html && npm run demo:config-resource && npm run demo:issue6 && npm run demo:out-html && npm run demo:use-template && npm run demo:use-template-complier && npm run demo:extract-css && npm run demo:public-path && npm run demo:pre-post-entrys && npm run demo:relative-path && npm run demo:relative-path-public-path && npm run demo:config-html-attribute && cd ../../",
 		"test": "node test.js"
 	},
 	"license": "ISC",
@@ -50,6 +51,8 @@
 		"webpack": "^4.16.0"
 	},
 	"devDependencies": {
+		"@types/react": "^16.4.7",
+		"@types/react-dom": "^16.0.6",
 		"css-loader": "^1.0.0",
 		"ejs": "^2.6.1",
 		"eslint": "^5.1.0",
@@ -57,7 +60,12 @@
 		"html-minifier": "^3.5.18",
 		"husky": "^0.14.3",
 		"mini-css-extract-plugin": "^0.4.1",
+		"react": "^16.4.2",
+		"react-dom": "^16.4.2",
 		"style-loader": "^0.21.0",
+		"ts-loader": "^4.4.2",
+		"tslib": "^1.9.3",
+		"typescript": "^3.0.1",
 		"webpack-cli": "^3.0.8",
 		"webpack-dev-server": "^3.1.4"
 	}
