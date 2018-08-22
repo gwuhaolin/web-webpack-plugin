@@ -15,5 +15,5 @@ module.exports = {
 			filename: 'index.html',
 			requires: ['A', 'B'],
 		}),
-	]
+	],
 };

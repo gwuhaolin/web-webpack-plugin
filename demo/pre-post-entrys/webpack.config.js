@@ -7,13 +7,13 @@ module.exports = {
 		filename: '[name].js',
 	},
 	entry: {
-		'polyfill': './polyfill',
-		'google-analytics': './google-analytics'
+		polyfill: './polyfill',
+		'google-analytics': './google-analytics',
 	},
 	plugins: [
 		new AutoWebPlugin('./pages', {
 			preEntrys: ['./polyfill'],
-			postEntrys: ['./google-analytics']
+			postEntrys: ['./google-analytics'],
 		}),
-	]
+	],
 };

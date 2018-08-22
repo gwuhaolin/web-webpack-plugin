@@ -12,12 +12,12 @@ module.exports = {
 		filename: '[name].js',
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.css$/,
 				loader: ['style-loader', 'css-loader'],
-			}
-		]
+			},
+		],
 	},
 	entry: autoPlugin.entry({
 		a: './a',
@@ -30,5 +30,5 @@ module.exports = {
 			filename: 'a.html',
 			requires: ['a'],
 		}),
-	]
+	],
 };

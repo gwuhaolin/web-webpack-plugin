@@ -1,5 +1,5 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { WebPlugin } = require('../../index');
 
 module.exports = {
@@ -8,15 +8,12 @@ module.exports = {
 		filename: '[name].js',
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: 'css-loader'
-				})
-			}
-		]
+				loader: [MiniCssExtractPlugin.loader, 'css-loader'],
+			},
+		],
 	},
 	entry: {
 		1: './1',
@@ -25,11 +22,14 @@ module.exports = {
 		4: './4',
 	},
 	plugins: [
-		new ExtractTextPlugin('[name].css'),
+		new MiniCssExtractPlugin({
+			filename: '[name].css',
+		}),
 		new WebPlugin({
 			filename: 'index.html',
 			template: './template.html',
-			requires: ['1', '2', '3', '4']
+			requires: ['1', '2', '3', '4'],
 		}),
-	]
+	],
+	mode: 'development',
 };

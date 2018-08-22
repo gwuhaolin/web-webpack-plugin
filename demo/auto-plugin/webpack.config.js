@@ -1,39 +1,47 @@
 const path = require('path');
-const fs = require('fs');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { AutoWebPlugin } = require('../../index');
+
+const autoWebPlugin = new AutoWebPlugin('./src/', {
+	ignorePages: ['ignore'],
+	template: './src/template.html',
+	outputPagemap: true,
+});
 
 module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-		publicPath: 'https://cdn.cn/'
+		publicPath: 'https://cdn.cn/',
 	},
-	entry: {
+	entry: autoWebPlugin.entry({
 		ie_polyfill: './src/ie_polyfill',
 		polyfill: './src/polyfill',
+	}),
+	optimization: {
+		splitChunks: {
+			minSize: 0,
+			cacheGroups: {
+				commons: {
+					chunks: 'initial',
+					name: 'common',
+					minChunks: 2,
+				},
+			},
+		},
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: 'css-loader'
-				})
-			}
-		]
+				loader: [MiniCssExtractPlugin.loader, 'css-loader'],
+			},
+		],
 	},
 	plugins: [
-		new ExtractTextPlugin('[name].css'),
-		new AutoWebPlugin('./src/', {
-			ignorePages: ['ignore'],
-			template: './src/template.html',
-			commonsChunk: {
-				name: 'common',// name prop is require
-				minChunks: 2,
-			},
-			outputPagemap: true,
+		new MiniCssExtractPlugin({
+			filename: '[name].css',
 		}),
-	]
+		autoWebPlugin,
+	],
 };

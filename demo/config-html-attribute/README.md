@@ -1,8 +1,9 @@
 # 给 HTML 标签注入属性
-有时你需要为 HTML 标签设置一些属性，例如你想为 Webpack 生成的 Chunk B 对应的 `script` 标签带上 `crossorigin=anonymous` 属性，
-你可以通过在 querystring 中带上非 **_** 开头的属性名称和对应的值即可。
+
+有时你需要为 HTML 标签设置一些属性，例如你想为 Webpack 生成的 Chunk B 对应的 `script` 标签带上 `crossorigin=anonymous` 属性，你可以通过在 querystring 中带上非 **\_** 开头的属性名称和对应的值即可。
 
 HTML 模版如下：
+
 ```html
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -22,7 +23,8 @@ HTML 模版如下：
 </html>
 ```
 
-输出的HTML：
+输出的 HTML：
+
 ```html
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -45,18 +47,18 @@ HTML 模版如下：
 </html>
 ```
 
-同时你会发现除了 querystring 中非 **_** 开头的属性被注入到了输出的 HTML 标签中外，原模版里的自带的属性被会保留原样，如上面的 `charset="x-UTF-16LE-BOM"`。
+同时你会发现除了 querystring 中非 **\_** 开头的属性被注入到了输出的 HTML 标签中外，原模版里的自带的属性被会保留原样，如上面的 `charset="x-UTF-16LE-BOM"`。
 
 除此之外，采用在配置文件里配置属性的方式也可以给 HTML 标签注入属性：
+
 ```js
 new WebPlugin({
 	filename: 'index.html',
 	requires: {
 		'ie-polyfill': {
 			_ie: true,
-			crossorigin:'anonymous'
-		}
-	}
-})
+			crossorigin: 'anonymous',
+		},
+	},
+});
 ```
-
