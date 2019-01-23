@@ -1,5 +1,5 @@
 {
-	"name": "web-webpack-plugin",
+	"name": "@tencent/web-webpack-plugin",
 	"version": "4.2.1",
 	"description": "web plugin for webpack, alternatives for html-webpack-plugin, use HTML as entry",
 	"keywords": [
@@ -25,6 +25,7 @@
 		"demo:auto-plugin": "cd demo/auto-plugin && rm -rf dist && rm -rf dist-js-prod && webpack --mode development && webpack --mode production --output-path dist-js-prod && cd ../../",
 		"demo:auto-plugin-logic-filename": "cd demo/auto-plugin-logic-filename && rm -rf dist && webpack && cd ../../",
 		"demo:auto-plugin-react-typescript": "cd demo/auto-plugin-react-typescript && rm -rf dist && webpack && cd ../../",
+		"demo:auto-plugin-use-template": "cd demo/auto-plugin-use-template && rm -rf dist && webpack && cd ../../",
 		"demo:config-resource": "cd demo/config-resource && rm -rf dist-js && rm -rf dist-js-prod && rm -rf dist-template && rm -rf dist &&  webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
 		"demo:out-html": "cd demo/out-html && rm -rf dist && webpack && cd ../../",
 		"demo:issue6": "cd demo/issue6 && rm -rf dist && webpack && cd ../../",
