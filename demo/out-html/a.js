@@ -1,1 +1,1 @@
-alert('hello web-webpack-plugin from a');
+alert('hello web-webpack-plugin from' + NAME);
