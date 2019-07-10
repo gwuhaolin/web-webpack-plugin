@@ -24,6 +24,7 @@
 		"eslint:fix": "eslint lib --fix",
 		"demo:auto-plugin": "cd demo/auto-plugin && rm -rf dist && rm -rf dist-js-prod && webpack --mode development && webpack --mode production --output-path dist-js-prod && cd ../../",
 		"demo:auto-plugin-pagedir-object": "cd demo/auto-plugin-pagedir-object && rm -rf dist && webpack --mode development && cd ../../",
+		"demo:mutil-web-plugin": "cd demo/mutil-web-plugin && rm -rf dist && webpack --mode development && cd ../../",
 		"demo:auto-plugin-logic-filename": "cd demo/auto-plugin-logic-filename && rm -rf dist && webpack && cd ../../",
 		"demo:auto-plugin-react-typescript": "cd demo/auto-plugin-react-typescript && rm -rf dist && webpack && cd ../../",
 		"demo:config-resource": "cd demo/config-resource && rm -rf dist-js && rm -rf dist-js-prod && rm -rf dist-template && rm -rf dist &&  webpack && webpack --config webpack.config-template.js && webpack -p --output-path dist-js-prod && cd ../../",
@@ -50,6 +51,7 @@
 	"dependencies": {
 		"file-type": "^8.1.0",
 		"parse5": "^5.0.0",
+		"tapable": "^1.1.3",
 		"webpack": "^4.16.0"
 	},
 	"devDependencies": {
