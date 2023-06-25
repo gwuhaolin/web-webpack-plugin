@@ -1,6 +1,6 @@
 {
 	"name": "web-webpack-plugin",
-	"version": "4.6.7",
+	"version": "5.0.0",
 	"description": "web plugin for webpack, alternatives for html-webpack-plugin, use HTML as entry",
 	"keywords": [
 		"webpack",
@@ -51,8 +51,7 @@
 	"dependencies": {
 		"file-type": "^8.1.0",
 		"parse5": "^5.0.0",
-		"tapable": "^1.1.3",
-		"webpack": "^4.16.0"
+		"webpack": "^5"
 	},
 	"devDependencies": {
 		"@types/react": "^16.4.7",
