@@ -8,7 +8,7 @@
 
 <p align='center'>
   <a href='http://webpack.wuhaolin.cn/'>
-    <img src='http://ou8vcvyuy.bkt.clouddn.com/dive-into-webpack.png' width='306px' height='411px'/>
+    <img src='http://p0.meituan.net/scarlett/df16c51ffb95186df6f75d8c0e22b965842464.png' width='306px' height='411px'/>
   </a>
 </p>
 
